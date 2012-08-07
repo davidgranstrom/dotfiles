@@ -13,7 +13,7 @@ total_run_times 0
 
 own_window yes
 own_window_transparent yes
-own_window_type desktop
+own_window_type override 
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 double_buffer yes
@@ -28,9 +28,10 @@ default_color white
 default_shade_color black
 default_outline_color white
 
-alignment top_right
-gap_x 22
-gap_y 52
+# alignment top_left
+alignment bottom_right
+gap_x 32
+gap_y 32
 
 no_buffers yes
 uppercase no
