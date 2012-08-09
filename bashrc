@@ -5,15 +5,15 @@
 # GENERAL
 # ============================================================================
 
-# use vi keybindings
+# use vi keybindings in bash
 set -o vi
 
-# ============================================================================
-# ALIASES
-# ============================================================================
+# set the default system editor
+export VISUAL=vim
+export EDITOR=vim
 
-alias ls='ls -oF'
-alias ..='cd ..'
+# add shell scripts to $PATH
+export PATH=$PATH:~/bin
 
 # ============================================================================
 # APPEARENCE
@@ -25,7 +25,9 @@ export CLICOLOR='Yes'
 export LSCOLORS='Dxgxfxfxbxdxdxhbadbxbx'
 
 # prompt
-export PS1="\[\033[01;38;5;39m\]\w > \[\033[0m\]"
+# export PS1="\[\033[01;38;5;39m\]\w > \[\033[0m\]"
+export PS1="\[\033[01;38;5;37m\]\w > \[\033[0m\]"
+# export PS1="\[\033[01;38;5;39m\]\u@\h|\[\033[0m\]\w > "
 
 # ============================================================================
 # EXAMPLES
