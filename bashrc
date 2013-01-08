@@ -13,7 +13,7 @@ export VISUAL=vim
 export EDITOR=vim
 
 # add shell scripts to $PATH
-export PATH=$PATH:~/bin
+export PATH=$HOME/bin:$HOME/bin/SuperCollider:$PATH
 
 # ============================================================================
 # APPEARENCE
