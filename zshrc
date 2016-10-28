@@ -1,86 +1,87 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# antigen
+source $HOME/.dotfiles/antigen/antigen.zsh
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# Load various lib files
+antigen use oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle command-not-found
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# theme
+# antigen theme robbyrussell
+antigen theme pure
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Tell antigen that you're done.
+antigen apply
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# customizations
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# path
+export PATH=$HOME/bin:$HOME/bin/SuperCollider:/usr/local/bin:/usr/local/opt/ruby/bin:$HOME/Library/Haskell/bin:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/src/music-suite/music-sandbox/bin:$PATH
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# set the default system editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export GIT_EDITOR="$VISUAL"
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+export LC_ALL=en_US.UTF-8
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+# zsh
+bindkey '^R' history-incremental-search-backward
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# aliases
+alias tmux='tmux -2' # force tmux to assume 256color terminal
+alias vim=nvim
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+# ls
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -oF'
+alias cp='cp -v'
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode gulp)
+# misc
+alias ..='cd ..'
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/zshrc.private
+# Setup fuzzy bookmark search function
+# ------------------------------------
+unalias c 2> /dev/null
+c() {
+   local dest_dir=$(bookmarks_glob_echo | fzf)
+   if [[ $dest_dir != '' ]]; then
+      cd "$dest_dir"
+   fi
+}
+export -f c > /dev/null
 
-# User configuration
+# add bookmark entry
+unalias bkm 2> /dev/null
+bkm() {
+    bookmark_pwd
+    echo "Added bookmark:" `pwd`
+}
+export -f bkm > /dev/null
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# search for word with ag and open file in vim
+unalias sf 2> /dev/null
+sf() {
+    ag "$1" --ignore "$2" | fzf --ansi | awk '{print $1}' | xargs nvim
+}
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export -f sf > /dev/null
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
