@@ -8,8 +8,10 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle command-not-found
 
+# Bundles from external sources
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle lukechilds/zsh-better-npm-completion
 
 # theme
 # antigen theme robbyrussell
@@ -37,19 +39,14 @@ bindkey '^R' history-incremental-search-backward
 alias tmux='tmux -2' # force tmux to assume 256color terminal
 alias vim=nvim
 
-# ls
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -oF'
-alias cp='cp -v'
-
-# grep
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# # ls
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -oF'
+# alias cp='cp -v'
 
 # misc
-alias ..='cd ..'
+# alias ..='cd ..'
 
 # Setup fuzzy bookmark search function
 # ------------------------------------
