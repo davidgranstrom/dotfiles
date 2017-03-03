@@ -40,15 +40,6 @@ bindkey '^R' history-incremental-search-backward
 alias tmux='tmux -2' # force tmux to assume 256color terminal
 alias vim=nvim
 
-# # ls
-# alias ll='ls -alF'
-# alias la='ls -A'
-# alias l='ls -oF'
-# alias cp='cp -v'
-
-# misc
-# alias ..='cd ..'
-
 # Setup fuzzy bookmark search function
 # ------------------------------------
 unalias c 2> /dev/null
