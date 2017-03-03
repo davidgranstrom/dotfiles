@@ -23,7 +23,7 @@ antigen apply
 # customizations
 
 # path
-export PATH=$HOME/bin:$HOME/bin/SuperCollider:/usr/local/bin:/usr/local/opt/ruby/bin:$HOME/Library/Haskell/bin:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/src/music-suite/music-sandbox/bin:$PATH
+export PATH=$HOME/bin:$HOME/bin/SuperCollider:/usr/local/bin:/usr/local/opt/ruby/bin:$HOME/Library/Haskell/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 
 # set the default system editor
 export VISUAL=nvim
