@@ -29,6 +29,7 @@ export PATH=$HOME/bin:$HOME/bin/SuperCollider:/usr/local/bin:/usr/local/opt/ruby
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
+export MANPAGER="nvim -u ~/.vim/vimrc0 -c 'set ft=man' -"
 
 export LC_ALL=en_US.UTF-8
 
