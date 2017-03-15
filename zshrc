@@ -1,26 +1,5 @@
-# antigen
-source $HOME/.dotfiles/antigen/antigen.zsh
-
-# Load various lib files
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle command-not-found
-
-# Bundles from external sources
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle lukechilds/zsh-better-npm-completion
-
-# theme
-# antigen theme robbyrussell
-antigen theme pure
-
-# Tell antigen that you're done.
-antigen apply
-
-# customizations
+source <(antibody init)
+source ~/.dotfiles/sourceables.sh
 
 # path
 export PATH=$HOME/bin:$HOME/bin/SuperCollider:/usr/local/bin:/usr/local/opt/ruby/bin:$HOME/Library/Haskell/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH
