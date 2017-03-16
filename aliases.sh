@@ -1,4 +1,6 @@
-# ls, the common ones I use a lot shortened for rapid fire usage
+alias ..='cd ..'
+
+# ls
 alias ls='ls -G'
 alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
