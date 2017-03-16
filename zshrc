@@ -1,5 +1,6 @@
 source <(antibody init)
 source ~/.dotfiles/sourceables.sh
+source ~/.dotfiles/aliases.sh
 
 # path
 export PATH=$HOME/bin:$HOME/bin/SuperCollider:/usr/local/bin:/usr/local/opt/ruby/bin:$HOME/Library/Haskell/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH
@@ -18,6 +19,7 @@ bindkey '^R' history-incremental-search-backward
 # aliases
 alias tmux='tmux -2' # force tmux to assume 256color terminal
 alias vim=nvim
+alias tidalvim='cd ~/code/haskell/tidal && tidalvim'
 
 # Setup fuzzy bookmark search function
 # ------------------------------------
