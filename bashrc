@@ -37,3 +37,5 @@ export PS1="\[\033[01;38;5;37m\]\w > \[\033[0m\]"
 # example: \033[01;38;5;160m
 
 # example prompt PS1="\[\033[1;34m\][\$(date +%H%M)][\u@\h:\w]$\[\033[0m\]"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
