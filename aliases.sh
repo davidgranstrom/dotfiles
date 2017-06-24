@@ -15,3 +15,5 @@ alias lrt='ls -1Fcrt'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+alias t='task'
