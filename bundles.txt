@@ -1,8 +1,8 @@
 mafredri/zsh-async
+zsh-users/zsh-completions
 
 # order matters
 sindresorhus/pure
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-completions
 # this must be last
 zsh-users/zsh-syntax-highlighting
