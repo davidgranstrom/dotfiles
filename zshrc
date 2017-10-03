@@ -14,9 +14,26 @@ bindkey -M vicmd v edit-command-line
 setopt share_history # share command history data
 setopt hist_ignore_dups
 
-# path
-export PATH=$HOME/bin:$HOME/bin/bin:$HOME/bin/SuperCollider:/usr/local/bin:/usr/local/opt/ruby/bin:$HOME/Library/Haskell/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH
+# set path
+path=($HOME/Library/Haskell/bin $path)
+path=($HOME/bin/SuperCollider $path)
+path=(/usr/local/opt/ruby/bin $path)
+path=($HOME/.cabal/bin $path)
+path=($HOME/.local/bin $path)
+path=($HOME/bin $path)
+path=($HOME/bin/bin $path)
+path=("/usr/local/sbin" $path)
+path=("/usr/local/bin" $path)
+
+# typeset -U path
+
+export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 export GOPATH=$HOME/.go
+# use this to get sysroot path
+# $(rustc --print sysroot)
+export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
+# tmuxp completion
+eval "$(_TMUXP_COMPLETE=source tmuxp)"
 
 # set the default system editor
 export VISUAL=nvim
