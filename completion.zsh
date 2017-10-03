@@ -9,6 +9,8 @@ zstyle ':completion:*' menu select
 # http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+source ~/.local/bin/aws_zsh_completer.sh
+
 # formatting and messages
 # http://www.masterzen.fr/2009/04/19/in-love-with-zsh-part-one/
 # zstyle ':completion:*' verbose yes
