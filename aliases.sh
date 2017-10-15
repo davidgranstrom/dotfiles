@@ -1,16 +1,10 @@
 alias ..='cd ..'
 
 # ls
-alias ls='ls -G'
-alias l='ls -lFh'     #size,show type,human readable
-alias la='ls -lAFh'   #long list,show almost all,show type,human readable
-alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
-alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
-alias ll='ls -l'      #long list
-alias ldot='ls -ld .*'
-alias lS='ls -1FSsh'
-alias lart='ls -1Fcart'
-alias lrt='ls -1Fcrt'
+alias ls='ls -G'      # enable color output
+alias l='ls -1F'      # one column, show type
+alias la='ls -laFh'   # long list, show almost all, show type, human readable
+alias lt='ls -laFht'   # long list,sorted by date,show type,human readable
 
 alias rm='rm -i'
 alias cp='cp -i'
