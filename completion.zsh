@@ -10,6 +10,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 source ~/.local/bin/aws_zsh_completer.sh
+# tmuxp completion
+eval "$(_TMUXP_COMPLETE=source tmuxp)"
 
 # formatting and messages
 # http://www.masterzen.fr/2009/04/19/in-love-with-zsh-part-one/
