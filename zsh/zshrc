@@ -1,3 +1,11 @@
+# Profiling
+#
+# uncomment to profile startup time using:
+# time  zsh -i -c exit > statuptime.txt
+#
+# (see also last line)
+# zmodload zsh/zprof
+
 # set path
 path=($HOME/Library/Haskell/bin $path)
 path=($HOME/bin/SuperCollider $path)
@@ -59,3 +67,6 @@ function bkm() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# uncomment to profile startup time
+# zprof
