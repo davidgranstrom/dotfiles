@@ -17,34 +17,34 @@ source ~/.dotfiles/sourceables.sh
 source ~/.dotfiles/aliases.sh
 source ~/.dotfiles/completion.zsh
 
+# history
 export HISTSIZE=5000
 export SAVEHIST=5000
 export HISTFILE=~/.zsh_history
+setopt share_history # share command history data
+setopt hist_ignore_dups
+
 # edit commands in vim
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-setopt share_history # share command history data
-setopt hist_ignore_dups
-
+# exports
 export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 export GOPATH=$HOME/.go
 # use this to get sysroot path
 # $(rustc --print sysroot)
+# ..but use hard coded value to increase shell startup time
 export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
-# tmuxp completion
-eval "$(_TMUXP_COMPLETE=source tmuxp)"
 
 # set the default system editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
 export MANPAGER="nvim -u ~/.vim/vimrc0 -c 'set ft=man' -"
-
 export LC_ALL=en_US.UTF-8
 
-# browse bookmars
+# browse bookmarks
 function c() {
     local dest_dir=$(bookmarks_glob_echo | fzf)
     if [[ $dest_dir != '' ]]; then
@@ -55,7 +55,7 @@ function c() {
 # add bookmark
 function bkm() {
     pwd >> ~/.shell_bookmarks
-    echo "Added bookmark:" `pwd`
+    echo "Added bookmark:" $(pwd)
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
