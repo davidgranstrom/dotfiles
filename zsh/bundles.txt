@@ -1,8 +1,26 @@
+# zsh plugins
+#
+# names corresponds to github repos
+
+# be able to perform async jobs in zsh
 mafredri/zsh-async
+
+# completions
 zsh-users/zsh-completions
 
-# order matters
-sindresorhus/pure
+# fish-like auto suggestions
 zsh-users/zsh-autosuggestions
-# this must be last
+
+# browse common directories based on frequency
+rupa/z
+
+# be able to jump back to previous directories
+Tarrasch/zsh-bd
+
+# order matters from here!
+
+# theme
+sindresorhus/pure
+
+# fish-like syntax highlighting
 zsh-users/zsh-syntax-highlighting
