@@ -3,8 +3,8 @@ source ~/.dotfiles/sourceables.sh
 source ~/.dotfiles/aliases.sh
 source ~/.dotfiles/completion.zsh
 
-export HISTSIZE=1000
-export SAVEHIST=1000
+export HISTSIZE=5000
+export SAVEHIST=5000
 export HISTFILE=~/.zsh_history
 # edit commands in vim
 autoload -z edit-command-line
