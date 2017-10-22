@@ -52,7 +52,7 @@ export MANPAGER="nvim -u ~/.vim/vimrc0 -c 'set ft=man' -"
 export LC_ALL=en_US.UTF-8
 
 # browse z's most recent directories using fzf
-function rmu() {
+function r() {
   local dir=$(z | sort -rn | fzf | awk '{ print $2 }')
   if [[ "$dir" != '' ]]; then
     cd "$dir"
