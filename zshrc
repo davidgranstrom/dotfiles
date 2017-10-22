@@ -43,12 +43,6 @@ export MANPAGER="nvim -u ~/.vim/vimrc0 -c 'set ft=man' -"
 
 export LC_ALL=en_US.UTF-8
 
-# aliases
-alias tmux='tmux -2' # force tmux to assume 256color terminal
-alias vim=nvim
-alias v='nvim -u ~/.vim/vimrc0'
-alias tidalvim='cd ~/code/haskell/tidal && tidalvim'
-
 # browse bookmars
 function c() {
     local dest_dir=$(bookmarks_glob_echo | fzf)

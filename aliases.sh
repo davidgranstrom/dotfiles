@@ -10,4 +10,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+alias tmux='tmux -2' # force tmux to assume 256color terminal
+alias vim=nvim
+alias v='nvim -u ~/.vim/vimrc0'
+alias tidalvim='cd ~/code/haskell/tidal && tidalvim'
 alias t='task'
