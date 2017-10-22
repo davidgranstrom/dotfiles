@@ -13,9 +13,9 @@ path=("/usr/local/bin" $path)
 # typeset -U path
 
 # source <(antibody init)
-source ~/.dotfiles/sourceables.sh
-source ~/.dotfiles/aliases.sh
-source ~/.dotfiles/completion.zsh
+source ~/.dotfiles/zsh/sourceables.sh
+source ~/.dotfiles/zsh/aliases.sh
+source ~/.dotfiles/zsh/completion.zsh
 
 # history
 export HISTSIZE=5000
