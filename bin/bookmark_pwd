@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+pwd >> ~/.shell_bookmarks

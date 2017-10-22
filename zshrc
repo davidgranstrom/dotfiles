@@ -1,4 +1,18 @@
-source <(antibody init)
+# set path
+path=($HOME/Library/Haskell/bin $path)
+path=($HOME/bin/SuperCollider $path)
+path=(/usr/local/opt/ruby/bin $path)
+path=($HOME/.cabal/bin $path)
+path=($HOME/.local/bin $path)
+path=($HOME/bin $path)
+path=($HOME/bin/bin $path)
+path=($HOME/.dotfiles/bin $path)
+path=("/usr/local/sbin" $path)
+path=("/usr/local/bin" $path)
+
+# typeset -U path
+
+# source <(antibody init)
 source ~/.dotfiles/sourceables.sh
 source ~/.dotfiles/aliases.sh
 source ~/.dotfiles/completion.zsh
@@ -13,19 +27,6 @@ bindkey -M vicmd v edit-command-line
 
 setopt share_history # share command history data
 setopt hist_ignore_dups
-
-# set path
-path=($HOME/Library/Haskell/bin $path)
-path=($HOME/bin/SuperCollider $path)
-path=(/usr/local/opt/ruby/bin $path)
-path=($HOME/.cabal/bin $path)
-path=($HOME/.local/bin $path)
-path=($HOME/bin $path)
-path=($HOME/bin/bin $path)
-path=("/usr/local/sbin" $path)
-path=("/usr/local/bin" $path)
-
-# typeset -U path
 
 export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 export GOPATH=$HOME/.go
