@@ -30,6 +30,8 @@ fi
 # Do menu-driven completion.
 zstyle ':completion:*' menu select
 
+bindkey '^j' autosuggest-accept
+
 # Color completion for some things.
 # http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
 # zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
