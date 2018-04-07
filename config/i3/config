@@ -155,8 +155,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   status_command i3status -c /home/dkg/.config/i3/i3status.conf 2> ~/log.txt
-  # status_command i3status
-
 
   # status_command i3status
   tray_output primary
@@ -170,7 +168,7 @@ bar {
     active_workspace   #333333 #333333 #FFFFFF
     inactive_workspace #333333 #333333 #888888
     urgent_workspace   #333333 #77007A #FFFFFF
-    # binding_mode       #333333 #77007A #FFFFFF
+    binding_mode       #333333 #77007A #FFFFFF
   }
 }
 
@@ -186,20 +184,6 @@ client.urgent           #2F343A #77007A #FFFFFF #333333   #333333
 client.placeholder      #333333 #333333 #888888 #333333   #333333
 
 client.background       #333333
-
-# bar {
-#   colors {
-#     background #000000
-#     statusline #FFFFFF
-#     separator  #CCCCCC
-
-#     focused_workspace  #159696 #159696 #FFFFFF
-#     active_workspace   #333333 #333333 #FFFFFF
-#     inactive_workspace #333333 #333333 #888888
-#     urgent_workspace   #333333 #77007A #FFFFFF
-#     # binding_mode       #333333 #77007A #FFFFFF
-#   }
-# }
 
 bindsym $mod+d exec "dmenu_run -nf '#FFFFFF' -nb '#333333' -sb '#159696' -sf '#FFFFFF' -fn 'monospace-10'"
 
