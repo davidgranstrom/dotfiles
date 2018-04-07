@@ -185,8 +185,8 @@ client.placeholder      #333333 #333333 #888888 #333333   #333333
 
 client.background       #333333
 
-bindsym $mod+d exec "dmenu_run -nf '#FFFFFF' -nb '#333333' -sb '#159696' -sf '#FFFFFF' -fn 'monospace-10'"
-
+# bindsym $mod+d exec "dmenu_run -i -nf '#FFFFFF' -nb '#333333' -sb '#159696' -sf '#FFFFFF' -fn 'monospace-10'"
+bindsym $mod+d exec "j4-dmenu-desktop"
 
 # Print screen focused window
 bindsym Print exec scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/'
