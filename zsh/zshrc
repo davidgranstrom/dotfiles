@@ -17,6 +17,7 @@ path=($HOME/bin/bin $path)
 path=($HOME/.dotfiles/bin $path)
 path=("/usr/local/sbin" $path)
 path=("/usr/local/bin" $path)
+path=(/home/linuxbrew/.linuxbrew/bin $path)
 
 # typeset -U path
 
