@@ -196,4 +196,7 @@ bindsym $mod+Print exec scrot '%Y%m%d_%Ho%M%S.png' -e 'mv $f ~/Pictures/screensh
 
 exec compton --config ~/.config/compton/config
 exec --no-startup-id feh --bg-max ~/Pictures/triangle_light_dark_shape_88545_1920x1200.jpg
-exec --no-startup-id xmodmap ~/.xmodmaprc
+# exec --no-startup-id xmodmap ~/.xmodmaprc
+exec "setxkbmap -layout us,se -option ctrl:nocaps"
+# toggle language with scroll lock
+exec "setxkbmap -option 'grp:sclk_toggle'"
