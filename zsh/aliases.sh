@@ -15,3 +15,5 @@ alias vim=nvim
 alias v='nvim -u ~/.vim/vimrc0'
 alias tidalvim='cd ~/code/haskell/tidal && tidalvim'
 alias t='task'
+
+alias o=openNautilus

@@ -74,6 +74,14 @@ function bkm() {
     echo "Added bookmark:" $(pwd)
 }
 
+function openNautilus() {
+  if [[ $1 != '' ]]; then
+    nautilus $1 --no-desktop 2> /dev/null
+  else
+    nautilus --no-desktop 2> /dev/null
+  fi
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # uncomment to profile startup time
