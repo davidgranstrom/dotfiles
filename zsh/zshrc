@@ -54,7 +54,7 @@ export LC_ALL=en_US.UTF-8
 
 # browse z's most recent directories using fzf
 function r() {
-  local dir=$(z | sort -rn | fzf | awk '{ print $2 }')
+  local dir=$(z | sort -rn | fzf | sed 's/^[^\/]*//g')
   if [[ "$dir" != '' ]]; then
     cd "$dir"
   fi
