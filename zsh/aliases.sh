@@ -16,4 +16,12 @@ alias v='nvim -u ~/.vim/vimrc0'
 alias tidalvim='cd ~/code/haskell/tidal && tidalvim'
 alias t='task'
 
+# git
+alias gs='git status'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
+alias gc='git commit'
+alias ga='git add'
+
+# linux/ubuntu
 alias o=openNautilus
+
