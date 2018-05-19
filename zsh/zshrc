@@ -7,17 +7,8 @@
 # zmodload zsh/zprof
 
 # set path
-path=($HOME/Library/Haskell/bin $path)
-path=($HOME/bin/SuperCollider $path)
-path=(/usr/local/opt/ruby/bin $path)
-path=($HOME/.cabal/bin $path)
-path=($HOME/.local/bin $path)
 path=($HOME/bin $path)
-path=($HOME/bin/bin $path)
 path=($HOME/.dotfiles/bin $path)
-path=("/usr/local/sbin" $path)
-path=("/usr/local/bin" $path)
-path=(/home/linuxbrew/.linuxbrew/bin $path)
 
 # typeset -U path
 
