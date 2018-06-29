@@ -52,7 +52,7 @@ function r() {
 
 # browse bookmarks
 function c() {
-  local dest_dir=$(bookmarks_glob_echo | fzf)
+  local dest_dir=$(list_bookmarks | fzf)
   if [[ $dest_dir != '' ]]; then
     cd "$dest_dir"
   fi
