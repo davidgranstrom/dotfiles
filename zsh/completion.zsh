@@ -32,6 +32,9 @@ zstyle ':completion:*' menu select
 
 bindkey '^j' autosuggest-accept
 
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+
 # Color completion for some things.
 # http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
 # zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
