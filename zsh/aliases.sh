@@ -25,3 +25,5 @@ alias ga='git add'
 # linux/ubuntu
 alias o=openNautilus
 
+# new {}.play fragment
+alias fragment='cd ~/code/web/synthdef.art/function-play/sc/ && vim $(date "+%Y-%m-%d.scd") -c SClangStart'
