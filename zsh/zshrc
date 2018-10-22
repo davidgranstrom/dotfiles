@@ -6,6 +6,9 @@
 # (see also last line)
 # zmodload zsh/zprof
 
+# allow bash-style comments
+setopt interactivecomments
+
 # set path
 path=($HOME/bin $path)
 path=($HOME/.dotfiles/bin $path)
