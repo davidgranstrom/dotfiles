@@ -12,7 +12,7 @@ setopt interactivecomments
 # set path
 path=($HOME/bin $path)
 path=($HOME/.dotfiles/bin $path)
-path=($HOME/Library/Python/3.6/bin $path)
+path=($HOME/Library/Python/3.7/bin $path)
 path=($HOME/.cargo/bin $path)
 
 # typeset -U path
