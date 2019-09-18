@@ -14,6 +14,7 @@ path=($HOME/bin $path)
 path=($HOME/.dotfiles/bin $path)
 path=($HOME/Library/Python/3.7/bin $path)
 path=($HOME/.cargo/bin $path)
+path=(/usr/local/opt/sqlite/bin $path)
 
 # typeset -U path
 
