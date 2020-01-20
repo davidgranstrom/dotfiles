@@ -35,13 +35,6 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # exports
-# export GOPATH=$HOME/.go
-# use this to get sysroot path
-# $(rustc --print sysroot)
-# ..but use hard coded value to increase shell startup time
-# export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
-
-# set the default system editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
@@ -70,23 +63,17 @@ function bkm() {
   echo "Added bookmark:" $(pwd)
 }
 
-function openNautilus() {
-  if [[ $1 != '' ]]; then
-    nautilus $1 --no-desktop 2> /dev/null
-  else
-    nautilus --no-desktop 2> /dev/null
-  fi
-}
-
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # uncomment to profile startup time
 # zprof
+
+source /Users/dkg/Library/Preferences/org.dystroy.broot/launcher/bash/br
