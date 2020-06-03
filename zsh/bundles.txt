@@ -2,9 +2,6 @@
 #
 # names corresponds to github repos
 
-# be able to perform async jobs in zsh
-mafredri/zsh-async
-
 # completions
 zsh-users/zsh-completions
 
@@ -18,6 +15,9 @@ rupa/z
 Tarrasch/zsh-bd
 
 # order matters from here!
+
+# be able to perform async jobs in zsh
+mafredri/zsh-async
 
 # theme
 sindresorhus/pure
