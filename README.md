@@ -19,3 +19,52 @@ The `r` command makes use of the [z](https://github.com/rupa/z) plugin to genera
 `bkm` - Add current `pwd` to bookmarks list
 
 `r` - Browse "most recent" directories
+
+# Tools
+
+## Shell
+
+```
+zsh
+tmux
+antibody
+```
+
+## Command line
+
+### Core
+
+```
+git
+cmake
+neovim
+fzf
+jq
+pandoc
+sox
+ripgrep
+fd
+tree
+htop
+```
+
+### Language
+
+```
+python
+python@2
+rbenv
+```
+
+### Misc
+
+```
+youtube-dl
+shellcheck
+```
+
+## npm
+
+```
+npm install -g backslide
+```
