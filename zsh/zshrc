@@ -13,8 +13,7 @@ setopt interactivecomments
 path=($HOME/bin $path)
 path=($HOME/.dotfiles/bin $path)
 path=($HOME/Library/Python/3.7/bin $path)
-path=($HOME/.cargo/bin $path)
-path=(/usr/local/opt/sqlite/bin $path)
+path=($HOME/.gem/ruby/2.6.0/bin $path)
 
 # typeset -U path
 
@@ -38,7 +37,7 @@ bindkey -M vicmd v edit-command-line
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
-export MANPAGER="nvim -u ~/.config/nvim/vimrc0 -c 'set ft=man' -"
+export MANPAGER='nvim +Man!'
 export LC_ALL=en_US.UTF-8
 
 # browse z's most recent directories using fzf
@@ -76,5 +75,3 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # uncomment to profile startup time
 # zprof
-
-source /Users/dkg/Library/Preferences/org.dystroy.broot/launcher/bash/br
