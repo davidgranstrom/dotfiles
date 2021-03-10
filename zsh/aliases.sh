@@ -10,7 +10,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias tmux='tmux -2' # force tmux to assume 256color terminal
+# alias tmux='tmux -2' # force tmux to assume 256color terminal
 alias vim=nvim
 alias v='nvim -u ~/.vim/vimrc0'
 alias t='task'
@@ -21,3 +21,5 @@ alias lldb='PATH="/usr/bin:$PATH" lldb'
 # git
 alias gs='git status'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
+
+alias love='/Applications/love.app/Contents/MacOS/love'
