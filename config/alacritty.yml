@@ -46,7 +46,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
+    x: 4
     y: 0
 
   # Spread additional padding evenly around the terminal content.
@@ -111,10 +111,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: IBM Plex Mono
-    # style: Light
-    family: Iosevka Term
-    style: Light Extended
+    family: IBM Plex Mono
+    style: Regular
+    # family: Iosevka Term
+    # style: Light Extended
 
   # Bold font face
   #bold:
@@ -173,10 +173,67 @@ font:
   #use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night)
-#colors:
+# Colors (Ayu Dark)
+# colors:
+#   # Default colors
+#   primary:
+#     # background: '0x0f1419'
+#     background: '0x050505'
+#     # background: '0x000000'
+#     foreground: '0xe6e1cf'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x000000'
+#     red:     '0xf34a4a'
+#     green:   '0xbae67e'
+#     yellow:  '0xffee99'
+#     blue:    '0x73d0ff'
+#     magenta: '0xd4bfff'
+#     cyan:    '0x83CEC6'
+#     white:   '0xf2f2f2'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x737d87'
+#     red:     '0xff3333'
+#     green:   '0xc2d94c'
+#     yellow:  '0x83CEC6'
+#     blue:    '0x59c2ff'
+#     magenta: '0xb77ee0'
+#     cyan:    '0x5ccfe6'
+#     white:   '0xffffff'
+
+# Space Duck
+colors:
+  # Default colors
+  primary:
+    background: '#0f111b'
+    foreground: '#ecf0c1'
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#e33400'
+    green:   '#5ccc96'
+    yellow:  '#b3a1e6'
+    blue:    '#00a3cc'
+    magenta: '#f2ce00'
+    cyan:    '#7a5ccc'
+    white:   '#686f9a'
+
+  # Bright colors
+  bright:
+    black:   '#686f9a'
+    red:     '#e33400'
+    green:   '#5ccc96'
+    yellow:  '#b3a1e6'
+    blue:    '#00a3cc'
+    magenta: '#f2ce00'
+    cyan:    '#7a5ccc'
+    white:   '#f0f1ce'
+
   # Default colors
   #primary:
   #  background: '#1d1f21'
