@@ -111,32 +111,43 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: IBM Plex Mono
-    style: Regular
+    # family: Menlo
+    # style: Text
+    family: FiraCode Nerd Font
+    # style: Light
+    style: Medium
+    # family: IBM Plex Mono
+    # style: Regular
+    # family: JetBrainsMono Nerd Font
+    # style: Medium
+    # style: Text
+    # family: Input Mono
+    # style: Extra Light
     # family: Iosevka Term
     # style: Light Extended
 
   # Bold font face
-  #bold:
+  # bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    # family: Input Mono
+    # family: FiraCode Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    # style: Regular
 
   # Italic font face
-  #italic:
+  # italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    # family: Input Mono
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    # style: Italic Extra Light
 
   # Bold italic font face
   #bold_italic:
@@ -156,24 +167,24 @@ font:
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   offset:
-    x: 0
+    x: 1
     y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
+  # glyph_offset:
+  #   x: 0
+  #   y: 0
 
   # Thin stroke font rendering (macOS only)
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
+  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 # Colors (Ayu Dark)
 # colors:
@@ -206,33 +217,66 @@ draw_bold_text_with_bright_colors: false
 #     cyan:    '0x5ccfe6'
 #     white:   '0xffffff'
 
-# Space Duck
+# TokyoNight Alacritty Colors
 colors:
   # Default colors
   primary:
-    background: '#0f111b'
-    foreground: '#ecf0c1'
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
+
   # Normal colors
   normal:
-    black:   '#000000'
-    red:     '#e33400'
-    green:   '#5ccc96'
-    yellow:  '#b3a1e6'
-    blue:    '#00a3cc'
-    magenta: '#f2ce00'
-    cyan:    '#7a5ccc'
-    white:   '#686f9a'
+    black:   '0x15161E'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xa9b1d6'
 
   # Bright colors
   bright:
-    black:   '#686f9a'
-    red:     '#e33400'
-    green:   '#5ccc96'
-    yellow:  '#b3a1e6'
-    blue:    '#00a3cc'
-    magenta: '#f2ce00'
-    cyan:    '#7a5ccc'
-    white:   '#f0f1ce'
+    black:   '0x414868'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+
+# # Space Duck
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#0f111b'
+#     foreground: '#ecf0c1'
+#   # Normal colors
+#   normal:
+#     black:   '#000000'
+#     red:     '#e33400'
+#     green:   '#5ccc96'
+#     yellow:  '#b3a1e6'
+#     blue:    '#00a3cc'
+#     magenta: '#f2ce00'
+#     cyan:    '#7a5ccc'
+#     white:   '#686f9a'
+
+#   # Bright colors
+#   bright:
+#     black:   '#686f9a'
+#     red:     '#e33400'
+#     green:   '#5ccc96'
+#     yellow:  '#b3a1e6'
+#     blue:    '#00a3cc'
+#     magenta: '#f2ce00'
+#     cyan:    '#7a5ccc'
+#     white:   '#f0f1ce'
 
   # Default colors
   #primary:
