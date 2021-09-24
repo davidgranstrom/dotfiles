@@ -42,7 +42,8 @@ export MANPAGER='nvim +Man!'
 export LC_ALL=en_US.UTF-8
 
 # browse z's most recent directories using fzf
-function r() {
+function r()
+{
   local dir=$(z | sort -rn | fzf | sed 's/^[^\/]*//g')
   if [[ "$dir" != '' ]]; then
     cd "$dir"
@@ -50,15 +51,22 @@ function r() {
 }
 
 # browse bookmarks
-function c() {
-  local dest_dir=$(list_bookmarks | fzf)
-  if [[ $dest_dir != '' ]]; then
-    cd "$dest_dir"
+function c()
+{
+  local bookmarks="$HOME/.shell_bookmarks"
+  if [[ -f "$bookmarks" ]] then
+    local dest_dir=$(cat "$bookmarks" | fzf)
+    if [[ "$dest_dir" != '' ]]; then
+      cd "$dest_dir"
+    fi
+  else
+    echo "No bookmarks. To add the current directory use: bkm"
   fi
 }
 
 # add bookmark
-function bkm() {
+function bkm()
+{
   pwd >> ~/.shell_bookmarks
   echo "Added bookmark:" $(pwd)
 }

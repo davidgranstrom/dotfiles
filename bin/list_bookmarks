@@ -1,8 +1,0 @@
-#!/bin/sh
-
-if [ -f ~/.shell_bookmarks ]; then
-  list=$(cat ~/.shell_bookmarks | sed 's/#.*//g' | sed '/^\s*$/d')
-  echo "$list" | sed '/^\s*$/d'
-else
-  echo "No bookmarks"
-fi
