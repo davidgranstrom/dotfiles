@@ -8,17 +8,19 @@ Config files for zsh, bash, tmux etc.
 
 Plugins are handled by the [antibody](https://github.com/getantibody/antibody) plugin manager. The script `generate-sources.sh` will install and generate (static) paths to the plugin sources, this improves shell startup time significantly.
 
-### Shell bookmarks
+### Navigation
 
-I have three commands which provides easier navigation in the shell. The first two `c` and `bkm`, browses and adds to static "bookmark list" respectively. The actual commands that are used can be be found in the `bin` directory of this repo, [fzf](https://github.com/junegunn/fzf) is used for filtering the list.
+Some convenient shell navigation functions defined in `zsh/zshrc`.
+
+[fzf](https://github.com/junegunn/fzf) is used for filtering for all three functions listed below and needs to be available in `$PATH`.
+
+| Command  | Description                             |
+|:--------:|:----------------------------------------|
+| `c`      | Browse a static list of shell bookmarks |
+| `bkm`    | Add current `pwd` to the bookmarks list |
+| `r`      | Browse "most recent" directories        |
 
 The `r` command makes use of the [z](https://github.com/rupa/z) plugin to generate a list of the most frequently used directories, which is then sorted and piped to `fzf`.
-
-`c` - Browse static list of shell bookmarks
-
-`bkm` - Add current `pwd` to bookmarks list
-
-`r` - Browse "most recent" directories
 
 # Tools
 
