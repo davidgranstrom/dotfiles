@@ -1,7 +1,7 @@
 # Profiling
 #
 # uncomment to profile startup time using:
-# time  zsh -i -c exit > statuptime.txt
+# time zsh -i -c exit > startuptime.txt
 #
 # (see also last line)
 # zmodload zsh/zprof
