@@ -16,7 +16,7 @@ end
 local servers = {
   clangd = {
     cmd = {
-      '/usr/local/Cellar/llvm/13.0.0_1/bin/clangd',
+      '/usr/bin/clangd',
       '--background-index',
       '--cross-file-rename',
       '--clang-tidy',

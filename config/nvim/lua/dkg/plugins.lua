@@ -8,7 +8,7 @@
 ---@param cfg The name of the config to require.
 local r = function(cfg)
   local module = string.format('dkg.configs.%s', cfg)
-  require(module)
+  pcall(require, module)
 end
 
 local function plugins()
@@ -18,8 +18,6 @@ local function plugins()
   use { 'nvim-treesitter/nvim-treesitter' }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   use { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' }
-  use { '~/code/vim/scnvim', config = r'scnvim' }
-  use { '~/code/vim/nvim-markdown-preview', cmd = 'MarkdownPreview', }
   use { 'tpope/vim-commentary' }
   use { 'tpope/vim-surround', config = r'surround' }
   use { 'tpope/vim-abolish', cmd = 'S' }
@@ -37,14 +35,14 @@ local function plugins()
   use { 'alec-gibson/nvim-tetris', cmd = 'Tetris' }
   use { 'jbyuki/venn.nvim', config = r'venn' }
   use {
-    'rebelot/kanagawa.nvim',
+    'folke/tokyonight.nvim',
     config = function()
-      vim.cmd [[colorscheme kanagawa]]
+      vim.g.tokyonight_style = 'night'
+      vim.cmd [[colorscheme tokyonight]]
       vim.cmd [[hi! link EndOfBuffer NonText]]
     end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use {'~/code/vim/telescope-scdoc' }
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -73,6 +71,9 @@ local function plugins()
       require'nvim-autopairs'.setup{}
     end
   }
+  -- use { '~/code/vim/scnvim', config = r'scnvim' }
+  -- use { '~/code/vim/nvim-markdown-preview', cmd = 'MarkdownPreview' }
+  -- use {'~/code/vim/telescope-scdoc' }
 end
 
 local packer_config = {
