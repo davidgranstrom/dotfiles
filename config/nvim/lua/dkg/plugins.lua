@@ -40,6 +40,7 @@ local function plugins()
       vim.g.tokyonight_style = 'night'
       vim.cmd [[colorscheme tokyonight]]
       vim.cmd [[hi! link EndOfBuffer NonText]]
+      vim.cmd [[hi! link VertSplit Function]]
     end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
