@@ -16,9 +16,8 @@ end
 local servers = {
   clangd = {
     cmd = {
-      '/usr/bin/clangd',
+      '/opt/homebrew/Cellar/llvm/13.0.0_2/bin/clangd',
       '--background-index',
-      '--cross-file-rename',
       '--clang-tidy',
     },
     filetypes = {'c', 'cpp'},
