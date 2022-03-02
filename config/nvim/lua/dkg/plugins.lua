@@ -8,7 +8,10 @@
 ---@param cfg The name of the config to require.
 local r = function(cfg)
   local module = string.format('dkg.configs.%s', cfg)
-  pcall(require, module)
+  local ok, err = pcall(require, module)
+  if not ok then
+    print(string.format('Error %s: %s', cfg, err))
+  end
 end
 
 local function plugins()
@@ -34,13 +37,16 @@ local function plugins()
   use { 'lukas-reineke/indent-blankline.nvim', config = r'indent-blankline' }
   use { 'alec-gibson/nvim-tetris', cmd = 'Tetris' }
   use { 'jbyuki/venn.nvim', config = r'venn' }
+  use { 'monaqa/dial.nvim', config = r'dial' }
   use {
     'folke/tokyonight.nvim',
     config = function()
       vim.g.tokyonight_style = 'night'
+      vim.g.tokyonight_italic_keywords = false
       vim.cmd [[colorscheme tokyonight]]
       vim.cmd [[hi! link EndOfBuffer NonText]]
       vim.cmd [[hi! link VertSplit Function]]
+      -- vim.cmd [[hi! link Comment Question]]
     end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -73,7 +79,8 @@ local function plugins()
     end
   }
   -- use { '~/code/vim/scnvim', config = r'scnvim' }
-  -- use { '~/code/vim/nvim-markdown-preview', cmd = 'MarkdownPreview' }
+  use { 'davidgranstrom/scnvim', config = r'scnvim', run = ':call scnvim#install()' }
+  use { '~/code/vim/nvim-markdown-preview', cmd = 'MarkdownPreview' }
   -- use {'~/code/vim/telescope-scdoc' }
 end
 

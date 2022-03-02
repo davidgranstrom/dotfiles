@@ -3,6 +3,8 @@ local buf_map = require'dkg.utils'.buf_map
 
 setlocal.cinoptions = 'l1'
 setlocal.commentstring = [[// %s]]
+-- setlocal.iskeyword:remove('_')
+
 buf_map(0, 'n', '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', {silent = true})
 
 -- Delete doxygen comments and insert function body.

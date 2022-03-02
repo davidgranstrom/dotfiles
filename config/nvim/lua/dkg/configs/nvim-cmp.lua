@@ -20,10 +20,10 @@ cmp.setup {
   },
   documentation = false,
   formatting = {
-    format = lspkind.cmp_format({preset = 'default', with_text = false, maxwidth = 50})
+    format = lspkind.cmp_format({preset = 'default', mode = 'symbol_text', maxwidth = 50})
   },
   mapping = {
-    ['<C-j>'] = cmp.mapping.confirm({ select = true }),
+    -- ['<C-j>'] = cmp.mapping.confirm({ select = true }),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
