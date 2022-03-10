@@ -1,4 +1,9 @@
---- Disable builtin plugins to reduce startup time
+-- Filetype lua opt-in
+
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+
+-- Disable builtin plugins to reduce startup time
 
 vim.g.make_loaded = 1
 vim.g.random_loaded = 1
