@@ -1,9 +1,9 @@
 local setlocal = vim.opt_local
-local buf_map = require'dkg.utils'.buf_map
 
 setlocal.cinoptions = 'l1'
 setlocal.commentstring = [[// %s]]
-buf_map(0, 'n', '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', {silent = true})
+
+vim.keymap.set('n', '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', {buffer = true})
 
 -- Delete doxygen comments and insert function body.
 function remove_doxygen()
