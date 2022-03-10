@@ -1,6 +1,6 @@
 local dial = require'dial.map'
 local augend = require'dial.augend'
-local map = require'dkg.utils'.map
+local map = vim.keymap.set
 
 map('n', '<C-a>', dial.inc_normal())
 map('n', '<C-x>', dial.dec_normal())

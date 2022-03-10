@@ -1,4 +1,3 @@
-local keymap = require'dkg.utils'.map
 local sorters = require'telescope.sorters'
 local previewers = require'telescope.previewers'
 
@@ -26,5 +25,5 @@ local providers = {
 
 for _, provider in ipairs(providers) do
   local map, action = unpack(provider)
-  keymap('n', map, string.format(cmd, action), {silent = true})
+  vim.keymap.set('n', map, string.format(cmd, action))
 end

@@ -80,7 +80,7 @@ local function plugins()
   }
   -- use { '~/code/vim/scnvim', config = r'scnvim' }
   use { 'davidgranstrom/scnvim', config = r'scnvim', run = ':call scnvim#install()' }
-  use { '~/code/vim/nvim-markdown-preview', cmd = 'MarkdownPreview' }
+  use { '~/code/vim/nvim-markdown-preview' }
   -- use {'~/code/vim/telescope-scdoc' }
 end
 

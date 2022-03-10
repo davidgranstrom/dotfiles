@@ -28,7 +28,7 @@ local function jump_back()
   end
 end
 
-local map = require'dkg.utils'.map
+local map = vim.keymap.set
 
 map('i', '<C-j>', '<cmd>lua require"dkg.configs.luasnip".expand_or_jump()<cr>')
 map('i', '<C-k>', '<cmd>lua require"dkg.configs.luasnip".jump_back()<cr>')

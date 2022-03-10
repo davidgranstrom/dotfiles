@@ -1,2 +1,2 @@
-local map = require'dkg.utils'.map
-map('x', 's', '<plug>VSurround', {noremap = false})
+local map = vim.keymap.set
+map('x', 's', '<plug>VSurround')

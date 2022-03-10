@@ -1,4 +1,4 @@
-local map = require'dkg.utils'.map
+local map = vim.keymap.set
 local save_ve = {}
 
 local function venn_toggle()
