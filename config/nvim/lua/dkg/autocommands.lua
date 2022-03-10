@@ -1,43 +1,78 @@
-vim.cmd [[ augroup nvim_init ]]
-vim.cmd [[ autocmd! ]]
-vim.cmd [[
-  " remember last cursor position
-  autocmd BufReadPost *
-        \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-        \ |   exe "normal! g`\""
-        \ | endif
+local group = vim.api.nvim_create_augroup('dkg_init', {clear = true})
 
-  autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+local function jump_to_last_position()
+  local last_curpos = vim.fn.line("'\"")
+  local last_line = vim.fn.line('$')
+  local ft = vim.api.nvim_get_option_value('filetype', {})
+  local in_range = last_curpos >= 1 and last_curpos <= last_line
+  local is_valid_filetype = ft ~= 'commit' and ft ~= 'rebase'
+  if in_range and is_valid_filetype then
+    vim.cmd [[ normal! g`" ]]
+  end
+end
 
-  " c#
-  autocmd FileType cs set tabstop=4 softtabstop=4 shiftwidth=4
+vim.api.nvim_create_autocmd('BufRead', {
+  desc = "Jump to last cursor position when opening a buffer",
+  callback = jump_to_last_position,
+  group = group,
+  once = true,
+})
 
-  " markdown
-  autocmd FileType markdown setlocal commentstring=<!--%s-->
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank{higroup = "IncSearch", timeout=80}
+  end,
+  group = group,
+})
 
-  " break undo sequence into smaller chunks for prose
-  autocmd FileType markdown inoremap <buffer> . .<c-g>u
-  autocmd FileType markdown inoremap <buffer> ? ?<c-g>u
-  autocmd FileType markdown inoremap <buffer> ! !<c-g>u
-  autocmd FileType markdown inoremap <buffer> , ,<c-g>u
+-- Filetype specific autocommands
 
-  " javascript
-  autocmd FileType javascript.jsx setlocal filetype=javascript
-  autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
-  " hack to make development servers not rebuild twice
-  autocmd FileType javascript setlocal nowritebackup
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  pattern = {'*.h', '*.c'},
+  command = 'set filetype=c',
+  group = group,
+})
 
-  " python
-  autocmd FileType python setlocal ts=4 sts=4 sw=4
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'cs',
+  command = 'setlocal tabstop=4 softtabstop=4 shiftwidth=4',
+  group = group,
+})
 
-  " cmake
-  autocmd FileType cmake setlocal commentstring=#%s
+local markdown_ = function()
+  vim.opt_local.commentstring = '<!--%s-->'
+  vim.keymap.set('i', '.', '.<c-g>u', {buffer = true})
+  vim.keymap.set('i', '?', '?<c-g>u', {buffer = true})
+  vim.keymap.set('i', '!', '!<c-g>u', {buffer = true})
+  vim.keymap.set('i', ',', ',<c-g>u', {buffer = true})
+end
 
-  " git
-  autocmd FileType gitcommit setlocal spell | setlocal spelllang=en
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = markdown_,
+  group = group,
+})
 
-  " highlight yanked text
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=80}
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'javascript.jsx',
+  command = 'setlocal filetype=javascript',
+  group = group,
+})
 
-]]
-vim.cmd [[ augroup END ]]
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'python',
+  command = 'setlocal ts=4 sts=4 sw=4',
+  group = group,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'cmake',
+  command = 'setlocal commentstring=#%s',
+  group = group,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'gitcommit',
+  command = 'setlocal spell | setlocal spelllang=en',
+  group = group,
+})
