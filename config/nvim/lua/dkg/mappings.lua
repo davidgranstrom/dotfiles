@@ -1,5 +1,4 @@
-local map = require'dkg.utils'.map
-local buf_map = require'dkg.utils'.buf_map
+local map = vim.keymap.set
 
 -- set map leader to <Space>
 vim.cmd [[ let mapleader = ' ' ]]
@@ -62,23 +61,76 @@ for _, dir in ipairs(t_directions) do
   map('t', lhs, rhs, {silent = true})
 end
 
+--- unimpaired.vim emulation
+--
+-- coc (toggle cursor line)
+-- cox (toggle cursor line/col)
+-- con (toggle numbers)
+-- cor (toggle relative numbers)
+-- col (toggle listchars)
+-- cos (toggle spell)
+-- coh (toggle hlsearch)
+-- ]q (quickfix next)
+-- [q (quickfix prev)
+-- [<space> ([count]line above)
+-- ]<space> ([count]line below)
+
+map('n', 'coc', function()
+  vim.wo.cursorline = not vim.wo.cursorline
+end)
+
+map('n', 'cox', function()
+  vim.wo.cursorcolumn = not vim.wo.cursorcolumn
+  vim.wo.cursorline = vim.wo.cursorcolumn
+end)
+
+map('n', 'con', function()
+  vim.wo.number = not vim.wo.number
+end)
+
+map('n', 'cor', function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+end)
+
+map('n', 'cos', function()
+  vim.wo.spell = not vim.wo.spell
+end)
+
+map('n', 'col', function()
+  vim.wo.list = not vim.wo.list
+end)
+
+map('n', 'coh', function()
+  vim.o.hlsearch = not vim.o.hlsearch
+end)
+
+map('n', '[<space>', function(c)
+  local count = vim.v.count
+  vim.cmd(string.format('normal! %dO', count))
+end)
+
+map('n', ']<space>', function()
+  local count = vim.v.count
+  vim.cmd(string.format('normal! %do', count))
+end)
+
 --- LSP
 
 local function lsp_mappings(bufnr)
-  local opts = {silent = true}
-  buf_map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_map(bufnr, 'n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_map(bufnr, 'n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_map(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_map(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_map(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_map(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_map(bufnr, 'n', '<leader>o', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_map(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_map(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_map(bufnr, 'n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_map(bufnr, 'n', '<leader>i', [[<cmd>lua require'telescope.builtin'.lsp_references()<CR>]], opts)
-  buf_map(bufnr, 'n', '<leader>y', [[<cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]], opts)
+  local opts = {buffer = bufnr}
+  map('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  map('n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  map('n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  map('n', '<leader>o', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  map('n', '<leader>i', [[<cmd>lua require'telescope.builtin'.lsp_references()<CR>]], opts)
+  map('n', '<leader>y', [[<cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]], opts)
 end
 
 return {

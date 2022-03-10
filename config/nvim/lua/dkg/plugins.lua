@@ -26,7 +26,7 @@ local function plugins()
   use { 'tpope/vim-abolish', cmd = 'S' }
   use { 'tpope/vim-fugitive', config = r'fugitive' }
   use { 'tpope/vim-repeat' }
-  use { 'tpope/vim-unimpaired', config = r'unimpaired' }
+  -- use { 'tpope/vim-unimpaired', config = r'unimpaired' }
   use { 'editorconfig/editorconfig-vim' }
   use { 'numToStr/Navigator.nvim', config = r'navigator' }
   use { 'justinmk/vim-dirvish' }
