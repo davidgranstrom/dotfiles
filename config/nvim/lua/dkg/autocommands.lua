@@ -1,4 +1,21 @@
+local statusline = require'dkg.statusline'
+
 local group = vim.api.nvim_create_augroup('dkg_init', {clear = true})
+
+vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {
+  callback = statusline.active,
+  group = group,
+})
+
+vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {
+  callback = statusline.tabline,
+  group = group,
+})
+
+vim.api.nvim_create_autocmd({'WinLeave', 'BufLeave'}, {
+  callback = statusline.inactive,
+  group = group,
+})
 
 local function jump_to_last_position()
   local last_curpos = vim.fn.line("'\"")
