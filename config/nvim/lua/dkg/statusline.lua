@@ -66,6 +66,11 @@ local function short_path(path, keep)
   return path
 end
 
+local function make_build_progress()
+  local progress = vim.w.make_progress
+  return progress ~= '' and '[' .. progress .. ']' or ''
+end
+
 --- Statusline
 
 local function active_left()
@@ -87,7 +92,7 @@ local function active_left()
     s = s .. pad(glyphs.branch, 1, 1) .. gitbranch
   end
   -- make integration
-  -- s = s .. ' %{MakeBuildProgress()}'
+  -- s = s ..  make_build_progress()
   -- help buffer flag, modified flag, read-only flag
   s = s .. ' %h%m%r%'
   return s
