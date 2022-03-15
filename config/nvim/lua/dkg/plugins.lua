@@ -78,8 +78,7 @@ local function plugins()
       require'nvim-autopairs'.setup{}
     end
   }
-  -- use { '~/code/vim/scnvim', config = r'scnvim' }
-  use { 'davidgranstrom/scnvim', config = r'scnvim', run = ':call scnvim#install()' }
+  use { '~/code/vim/scnvim', config = r'scnvim' }
   use { '~/code/vim/nvim-markdown-preview' }
   -- use {'~/code/vim/telescope-scdoc' }
 end
