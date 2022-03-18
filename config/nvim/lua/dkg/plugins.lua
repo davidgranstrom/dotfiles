@@ -37,7 +37,6 @@ local function plugins()
   use { 'lukas-reineke/indent-blankline.nvim', config = r'indent-blankline' }
   use { 'alec-gibson/nvim-tetris', cmd = 'Tetris' }
   use { 'jbyuki/venn.nvim', config = r'venn' }
-  use { 'monaqa/dial.nvim', config = r'dial' }
   use {
     'folke/tokyonight.nvim',
     config = function()
