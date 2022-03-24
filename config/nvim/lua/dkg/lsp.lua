@@ -16,7 +16,7 @@ end
 local servers = {
   clangd = {
     cmd = {
-      '/opt/homebrew/Cellar/llvm/13.0.1/bin/clangd',
+      '/opt/homebrew/Cellar/llvm/13.0.1_1/bin/clangd',
       '--background-index',
       '--clang-tidy',
     },
