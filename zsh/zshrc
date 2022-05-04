@@ -41,6 +41,9 @@ export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
 export MANPAGER='nvim +Man!'
 export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_COLLATE=C
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # browse z's most recent directories using fzf
 function r()

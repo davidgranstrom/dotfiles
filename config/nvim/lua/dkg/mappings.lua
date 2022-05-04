@@ -10,6 +10,10 @@ map('n', '<leader>ev', '<cmd>tabedit $MYVIMRC<cr>')
 -- change to current directory
 map('n', '<leader>c', '<cmd>cd %:p:h | pwd<cr>')
 
+-- navigate through wrapped text
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
+
 -- exit insert mode
 map('i', 'jk', '<Esc>')
 
@@ -70,6 +74,7 @@ end
 -- col (toggle listchars)
 -- cos (toggle spell)
 -- coh (toggle hlsearch)
+-- cow (toggle wrap)
 -- ]q (quickfix next)
 -- [q (quickfix prev)
 -- [<space> ([count]line above)
@@ -102,6 +107,10 @@ end)
 
 map('n', 'coh', function()
   vim.o.hlsearch = not vim.o.hlsearch
+end)
+
+map('n', 'cow', function()
+  vim.o.wrap = not vim.o.wrap
 end)
 
 map('n', '[<space>', function(c)

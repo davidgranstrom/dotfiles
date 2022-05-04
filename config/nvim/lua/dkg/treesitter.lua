@@ -27,12 +27,12 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
   incremental_selection = {
-    enable = false,
-    -- keymaps = {
-    --   init_selection = "<Enter>",
-    --   node_incremental = "<Enter>",
-    --   node_decremental = "<BS>",
-    -- },
+    enable = true,
+    keymaps = {
+      init_selection = "<Enter>",
+      node_incremental = "<Enter>",
+      node_decremental = "<BS>",
+    },
   },
   textobjects = {
     select = {

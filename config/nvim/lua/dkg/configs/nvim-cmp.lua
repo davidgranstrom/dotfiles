@@ -14,11 +14,13 @@ cmp.setup {
   completion = {
     keyword_length = 3,
   },
+  window = {
+    documentation = false,
+  },
   experimental = {
     native_menu = false,
     ghost_text = false,
   },
-  documentation = false,
   formatting = {
     format = lspkind.cmp_format({preset = 'default', mode = 'symbol_text', maxwidth = 50})
   },

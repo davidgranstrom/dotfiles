@@ -8,6 +8,8 @@ return {
     harfbuzz_features = {"calt=0", "clig=0", "liga=0"},
   }),
   font_size = 16.0,
+  freetype_load_target = "Light",
+  freetype_render_target = "HorizontalLcd",
 
   -- keys
   send_composed_key_when_left_alt_is_pressed = false,

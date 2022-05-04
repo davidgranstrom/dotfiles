@@ -7,10 +7,13 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 --   capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 -- end
 
+-- vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
+
 local on_attach = function(_, bufnr)
   lsp_mappings(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
   vim.cmd [[ command! -buffer -nargs=? ReplaceAll lua vim.lsp.buf.rename(<args>)<CR> ]]
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
 local servers = {
@@ -24,7 +27,29 @@ local servers = {
   },
   cmake = {},
   tsserver = {},
+  supercollider = {},
 }
+
+local configs = require'lspconfig.configs'
+if not configs.supercollider then
+  configs.supercollider = {
+    default_config = {
+      cmd = {
+        '/Users/dkg/code/javascript/sclang-lsp-stdio/sclang-lsp-stdio.mjs',
+        '/Applications/SuperCollider.app/Contents/MacOS/sclang',
+        '-d',
+        '/tmp/sclang-lsp.txt'
+      },
+      filetypes = {'supercollider'},
+      root_dir = function(fname)
+        return vim.fn.getcwd()
+      end,
+    },
+    settings = {},
+  }
+end
+
+servers['supercollider'] = configs.supercollider
 
 for name, cfg in pairs(servers) do
   local config = {
@@ -34,26 +59,3 @@ for name, cfg in pairs(servers) do
   config = vim.tbl_extend('keep', config, cfg)
   lsp[name].setup(config)
 end
-
--- vim.lsp.set_log_level(vim.lsp.log_levels.TRACE)
--- local configs = require'lspconfig/configs'
--- if not lsp.supercollider then
---   configs.supercollider = {
---     default_config = {
---       cmd = {'/Users/dkg/code/cpp/sclangd/build/sclangd'};
---       filetypes = {'supercollider'};
---       root_dir = function(fname)
---         return vim.fn.getcwd()
---       end;
---     };
---     settings = {};
---     docs = {
---       package_json = '';
---       description = [[]];
---       default_config = {
---         root_dir = 'vim's starting directory';
---       };
---     };
---   }
--- end
--- lsp.supercollider.setup{}

@@ -79,6 +79,15 @@ local function plugins()
   }
   use { '~/code/vim/scnvim', config = r'scnvim' }
   use { '~/code/vim/nvim-markdown-preview' }
+  use {
+    '~/code/vim/nvim-trevJ.lua',
+    config = 'require("trevj").setup()',
+    setup = function()
+      vim.keymap.set('n', '<leader>l', function()
+        require'trevj'.format_at_cursor()
+      end)
+    end,
+  }
   -- use {'~/code/vim/telescope-scdoc' }
 end
 
