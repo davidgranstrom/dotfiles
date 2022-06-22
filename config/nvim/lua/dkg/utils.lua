@@ -56,3 +56,9 @@ function sc_scratchpad_new()
     end)
   end)
 end
+
+vim.cmd[[
+function! GetNavicInfo() abort
+  return luaeval("require'nvim-navic'.get_location()")
+endfunction
+]]

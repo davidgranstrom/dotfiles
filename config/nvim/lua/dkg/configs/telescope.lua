@@ -1,7 +1,8 @@
 local sorters = require'telescope.sorters'
 local previewers = require'telescope.previewers'
+local telescope = require'telescope'
 
-require'telescope'.setup{
+telescope.setup{
   defaults = {
     color_devicons = true,
     file_sorter = sorters.get_fzy_sorter,
@@ -12,7 +13,8 @@ require'telescope'.setup{
 }
 
 -- use fzf sorter
-require'telescope'.load_extension('fzf')
+telescope.load_extension 'fzf'
+telescope.load_extension 'notify'
 -- require'telescope'.load_extension('scdoc')
 
 local cmd = '<cmd>Telescope %s<cr>'

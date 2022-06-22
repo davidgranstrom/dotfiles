@@ -1,5 +1,9 @@
 local lsp = require'lspconfig'
 local lsp_mappings = require'dkg.mappings'.lsp_mappings
+local ok, navic = pcall(require, 'nvim-navic')
+if not ok then
+  navic = nil
+end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- local ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
@@ -9,11 +13,14 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 -- vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   lsp_mappings(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
   vim.cmd [[ command! -buffer -nargs=? ReplaceAll lua vim.lsp.buf.rename(<args>)<CR> ]]
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  if navic then
+    navic.attach(client, bufnr)
+  end
+  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
 local servers = {
@@ -27,7 +34,7 @@ local servers = {
   },
   cmake = {},
   tsserver = {},
-  supercollider = {},
+  -- supercollider = {},
 }
 
 local configs = require'lspconfig.configs'
@@ -49,7 +56,7 @@ if not configs.supercollider then
   }
 end
 
-servers['supercollider'] = configs.supercollider
+-- servers['supercollider'] = configs.supercollider
 
 for name, cfg in pairs(servers) do
   local config = {

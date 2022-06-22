@@ -37,6 +37,7 @@ local function plugins()
   use { 'lukas-reineke/indent-blankline.nvim', config = r'indent-blankline' }
   use { 'alec-gibson/nvim-tetris', cmd = 'Tetris' }
   use { 'jbyuki/venn.nvim', config = r'venn' }
+  use { 'mfussenegger/nvim-dap', config = r'dap' }
   use {
     'folke/tokyonight.nvim',
     config = function()
@@ -46,6 +47,13 @@ local function plugins()
       vim.cmd [[hi! link EndOfBuffer NonText]]
       vim.cmd [[hi! link VertSplit Function]]
       -- vim.cmd [[hi! link Comment Question]]
+    end
+  }
+  use { 'SmiteshP/nvim-navic' }
+  use {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require("notify")
     end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -78,9 +86,11 @@ local function plugins()
     end
   }
   use { '~/code/vim/scnvim', config = r'scnvim' }
+  use { '~/code/vim/scnvim-logger' }
+  use { 'madskjeldgaard/nvim-supercollider-piano', branch = 'lua-rewrite' }
   use { '~/code/vim/nvim-markdown-preview' }
   use {
-    '~/code/vim/nvim-trevJ.lua',
+    'AckslD/nvim-trevJ.lua',
     config = 'require("trevj").setup()',
     setup = function()
       vim.keymap.set('n', '<leader>l', function()

@@ -16,6 +16,7 @@ require'nvim-treesitter.configs'.setup {
     "fennel",
     "dockerfile",
     "query",
+    "cmake",
     -- "markdown",
     -- "supercollider",
   },

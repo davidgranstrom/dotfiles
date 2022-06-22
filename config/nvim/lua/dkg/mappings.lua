@@ -123,6 +123,30 @@ map('n', ']<space>', function()
   vim.cmd(string.format('normal! %do', count))
 end)
 
+map('n', ']q', function()
+  vim.cmd [[ cnext ]]
+end)
+
+map('n', '[q', function()
+  vim.cmd [[ cprev ]]
+end)
+
+map('n', ']f', function()
+  vim.cmd [[ next ]]
+end)
+
+map('n', '[f', function()
+  vim.cmd [[ prev ]]
+end)
+
+map('n', ']b', function()
+  vim.cmd [[ bnext ]]
+end)
+
+map('n', '[b', function()
+  vim.cmd [[ bprev ]]
+end)
+
 --- LSP
 
 local function lsp_mappings(bufnr)

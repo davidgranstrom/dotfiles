@@ -19,4 +19,7 @@ ls.snippets = {
   supercollider = {
     s('sb', { t('s.boot;') }),
   },
+  lua = {
+    s('pri', fmt('print("{} = {}\\n", {});', {rep(1), i(0), i(1)}))
+  }
 }

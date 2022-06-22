@@ -5,6 +5,25 @@ end
 local lspkind = require'lspkind'
 local luasnip = require'luasnip'
 local cmp = require'cmp'
+
+local next_item = function(fallback)
+  if cmp.visible() then
+    cmp.select_next_item()
+  elseif has_words_before() then
+    cmp.complete()
+  else
+    fallback()
+  end
+end
+
+local prev_item = function(fallback)
+  if cmp.visible() then
+    cmp.select_prev_item()
+  else
+    fallback()
+  end
+end
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -26,23 +45,10 @@ cmp.setup {
   },
   mapping = {
     -- ['<C-j>'] = cmp.mapping.confirm({ select = true }),
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+    ['<Tab>'] = cmp.mapping(next_item, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(prev_item , { 'i', 's' }),
+    ['<C-n>'] = cmp.mapping(next_item, { 'i', 's' }),
+    ['<C-p>'] = cmp.mapping(prev_item , { 'i', 's' }),
   },
   sources = {
     { name = 'nvim_lsp' },
