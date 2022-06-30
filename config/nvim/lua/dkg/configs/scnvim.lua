@@ -1,27 +1,21 @@
-local scnvim = require'scnvim'
+local scnvim = require 'scnvim'
 local map = scnvim.map
-
-local map_expr = function(expr, modes)
-  modes = modes or {'n', 'x', 'i'}
-  return scnvim.map(function()
-    scnvim.send(expr)
-  end, modes)
-end
+local map_expr = scnvim.map_expr
 
 scnvim.setup {
-  mapping = {
-    ['<M-e>'] = map.send_line({'i', 'n'}),
+  keymaps = {
+    ['<M-e>'] = map('editor.send_line', {'i', 'n'}),
     ['<C-e>'] = {
-      map.send_block({'i', 'n'}),
-      map.send_selection('x'),
+      map('editor.send_block', {'i', 'n'}),
+      map('editor.send_selection', 'x'),
     },
-    ['<CR>'] = map.postwin_toggle(),
-    ['<M-CR>'] = map.postwin_toggle('i'),
-    ['<M-L>'] = map.postwin_clear({'n', 'i'}),
-    ['<C-k>'] = map.show_signature({'n', 'i'}),
-    ['<F12>'] = map.hard_stop({'n', 'x', 'i'}),
-    ['<leader>st'] = map(scnvim.start),
-    ['<leader>sk'] = map(scnvim.recompile),
+    ['<CR>'] = map('postwin.toggle'),
+    ['<M-CR>'] = map('postwin.toggle', 'i'),
+    ['<M-L>'] = map('postwin.clear', {'n', 'i'}),
+    ['<C-k>'] = map('signature.show', {'n', 'i'}),
+    ['<F12>'] = map('sclang.hard_stop', {'n', 'x', 'i'}),
+    ['<leader>st'] = map('sclang.start'),
+    ['<leader>sk'] = map('sclang.recompile'),
     ['<F1>'] = map_expr('s.boot'),
     ['<F2>'] = map_expr('s.meter'),
   },
@@ -35,13 +29,22 @@ scnvim.setup {
     cmd = '/opt/homebrew/bin/pandoc',
   },
   postwin = {
+    keymaps = {
+      q = map('postwin.close')
+    },
     float = {
       enabled = true,
     },
   },
+  extensions = {
+    ['fzf-sc'] = {
+      search_plugin = 'nvim-fzf',
+    },
+  }
 }
 
 vim.keymap.set('n', '<leader>sn', sc_scratchpad_new)
 
-scnvim.load_extension('logger')
-scnvim.load_extension('piano')
+-- scnvim.load_extension('logger')
+-- scnvim.load_extension('piano')
+-- scnvim.load_extension('fzf-sc')

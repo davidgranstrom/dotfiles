@@ -87,7 +87,6 @@ local function plugins()
   }
   use { '~/code/vim/scnvim', config = r'scnvim' }
   use { '~/code/vim/scnvim-logger' }
-  use { 'madskjeldgaard/nvim-supercollider-piano', branch = 'lua-rewrite' }
   use { '~/code/vim/nvim-markdown-preview' }
   use {
     'AckslD/nvim-trevJ.lua',
