@@ -85,8 +85,12 @@ local function plugins()
       require'nvim-autopairs'.setup{}
     end
   }
-  use { '~/code/vim/scnvim', config = r'scnvim' }
+  use {
+    '~/code/vim/scnvim',
+    config = r'scnvim',
+  }
   use { '~/code/vim/scnvim-logger' }
+  use { '~/code/vim/scnvim-tmux' }
   use { '~/code/vim/nvim-markdown-preview' }
   use {
     'AckslD/nvim-trevJ.lua',
