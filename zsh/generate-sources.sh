@@ -1,3 +1,3 @@
 #!/bin/sh
 
-antibody bundle < bundles.txt > sourceables.sh
+antidote bundle < bundles.txt > sourceables.sh
