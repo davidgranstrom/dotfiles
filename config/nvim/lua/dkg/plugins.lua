@@ -97,11 +97,6 @@ local function plugins()
       end)
     end,
   }
-  use {
-    'phaazon/mind.nvim',
-    tag = 'v2.*',
-    config = r'mind'
-  }
   use { '~/code/vim/scnvim', config = r'scnvim' }
   use { '~/code/vim/scnvim-logger' }
   use { '~/code/vim/scnvim-tmux' }
