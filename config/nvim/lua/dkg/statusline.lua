@@ -101,7 +101,6 @@ end
 local function active_right()
   local s = ''
   local ft = get_ft()
-  s = s .. '%{GetNavicInfo()} '
   -- line num, virtual col, value of char (hex)
   s = s .. '%-8.(%l:%v %B%)'
   s = s .. pad(glyphs.moon, 1, 1)

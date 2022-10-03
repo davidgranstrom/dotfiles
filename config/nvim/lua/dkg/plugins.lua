@@ -28,6 +28,7 @@ local function plugins()
   use { 'tpope/vim-repeat' }
   -- use { 'tpope/vim-unimpaired', config = r'unimpaired' }
   use { 'editorconfig/editorconfig-vim' }
+  -- use { 'gpanders/editorconfig.nvim' }
   use { 'numToStr/Navigator.nvim', config = r'navigator' }
   use { 'justinmk/vim-dirvish' }
   use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter', config = r'neogen' }
@@ -41,19 +42,18 @@ local function plugins()
   use {
     'folke/tokyonight.nvim',
     config = function()
-      vim.g.tokyonight_style = 'night'
-      vim.g.tokyonight_italic_keywords = false
-      vim.cmd [[colorscheme tokyonight]]
+      require('tokyonight').setup {
+        style = 'night', -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = false },
+        },
+      }
+      -- vim.g.tokyonight_italic_keywords = false
+      vim.cmd.colorscheme 'tokyonight'
       vim.cmd [[hi! link EndOfBuffer NonText]]
-      vim.cmd [[hi! link VertSplit Function]]
+      vim.cmd [[hi! link WinSeparator Function]]
       -- vim.cmd [[hi! link Comment Question]]
-    end
-  }
-  use { 'SmiteshP/nvim-navic' }
-  use {
-    'rcarriga/nvim-notify',
-    config = function()
-      vim.notify = require("notify")
     end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -65,7 +65,10 @@ local function plugins()
     },
     config = r'telescope'
   }
-  use { 'L3MON4D3/LuaSnip', config = r'luasnip' }
+  use {
+    'L3MON4D3/LuaSnip',
+    config = r'luasnip',
+  }
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -86,13 +89,6 @@ local function plugins()
     end
   }
   use {
-    '~/code/vim/scnvim',
-    config = r'scnvim',
-  }
-  use { '~/code/vim/scnvim-logger' }
-  use { '~/code/vim/scnvim-tmux' }
-  use { '~/code/vim/nvim-markdown-preview' }
-  use {
     'AckslD/nvim-trevJ.lua',
     config = 'require("trevj").setup()',
     setup = function()
@@ -101,7 +97,28 @@ local function plugins()
       end)
     end,
   }
-  -- use {'~/code/vim/telescope-scdoc' }
+  use {
+    'phaazon/mind.nvim',
+    tag = 'v2.*',
+    config = r'mind'
+  }
+  use { '~/code/vim/scnvim', config = r'scnvim' }
+  use { '~/code/vim/scnvim-logger' }
+  use { '~/code/vim/scnvim-tmux' }
+  use { '~/code/vim/nvim-markdown-preview' }
+  use {'~/code/vim/telescope-scdoc' }
+  use {
+    '~/code/vim/oblique-strategies.nvim',
+    config = function()
+      require('oblique-strategies').setup{
+        keymaps = {
+          show = {
+            n = '<F9>',
+          },
+        },
+      }
+    end
+  }
 end
 
 local packer_config = {

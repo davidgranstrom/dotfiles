@@ -12,7 +12,7 @@ setopt interactivecomments
 # set path
 path=($HOME/bin $path)
 path=($HOME/.dotfiles/bin $path)
-path=($HOME/Library/Python/3.8/bin $path)
+path=($HOME/Library/Python/3.9/bin $path)
 path=($HOME/.gem/ruby/2.6.0/bin $path)
 path=($HOME/.cargo/bin $path)
 path=($HOME/.luarocks/bin $path)

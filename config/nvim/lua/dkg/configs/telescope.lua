@@ -14,8 +14,7 @@ telescope.setup{
 
 -- use fzf sorter
 telescope.load_extension 'fzf'
-telescope.load_extension 'notify'
--- require'telescope'.load_extension('scdoc')
+telescope.load_extension 'scdoc'
 
 local cmd = '<cmd>Telescope %s<cr>'
 local providers = {

@@ -2,6 +2,17 @@ local scnvim = require 'scnvim'
 local map = scnvim.map
 local map_expr = scnvim.map_expr
 
+local function get_pandoc_path()
+  local sysname = require('scnvim.path').get_system()
+  if sysname == 'linux' then
+    return '/bin/pandoc'
+  elseif sysname == 'macos' then
+    return '/opt/homebrew/bin/pandoc'
+  else
+    return '/opt/homebrew/bin/pandoc'
+  end
+end
+
 scnvim.setup {
   ensure_installed = true,
   keymaps = {
@@ -48,9 +59,22 @@ scnvim.setup {
   }
 }
 
+-- vim.cmd [[ autocmd BufEnter scnvim setlocal wrap ]]
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = 'scnvim',
+--   callback = function(data)
+--     print('postwin!', P(data))
+--     vim.opt_local.wrap = true
+--   end
+-- })
+
+-- require('scnvim.postwin').on_open:append(function()
+--   vim.opt_local.wrap = true
+-- end)
+
 vim.keymap.set('n', '<leader>sn', sc_scratchpad_new)
 
-scnvim.load_extension 'tmux'
+-- scnvim.load_extension 'tmux'
 -- scnvim.load_extension('logger')
 -- scnvim.load_extension('piano')
 -- scnvim.load_extension('fzf-sc')

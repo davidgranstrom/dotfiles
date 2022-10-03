@@ -11,8 +11,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 --   capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 -- end
 
--- vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
-
 local on_attach = function(client, bufnr)
   lsp_mappings(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
@@ -26,7 +24,7 @@ end
 local servers = {
   clangd = {
     cmd = {
-      '/opt/homebrew/Cellar/llvm/13.0.1_1/bin/clangd',
+      '/opt/homebrew/Cellar/llvm/14.0.6_1/bin/clangd',
       '--background-index',
       '--clang-tidy',
     },
@@ -34,6 +32,7 @@ local servers = {
   },
   cmake = {},
   tsserver = {},
+  gdscript = {},
   -- supercollider = {},
 }
 
@@ -56,6 +55,7 @@ if not configs.supercollider then
   }
 end
 
+-- vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
 -- servers['supercollider'] = configs.supercollider
 
 for name, cfg in pairs(servers) do

@@ -1,9 +1,9 @@
 local ls = require'luasnip'
 local ls_types = require'luasnip.util.types'
 
-ls.config.set_config {
+ls.setup {
   -- Remember last snippet
-  history = true,
+  history = false,
   -- Dynamic update
   updateevents = 'TextChanged,TextChangedI',
   enable_autosnippets = false,

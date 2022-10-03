@@ -1,5 +1,6 @@
 local wezterm = require'wezterm'
 local colorscheme = require'colorschemes.tokyonight'
+-- local colorscheme = require'colorschemes.poimandres'.setup {}
 
 return {
   -- font

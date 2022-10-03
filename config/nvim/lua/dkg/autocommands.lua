@@ -50,11 +50,11 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
   group = group,
 })
 
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-  pattern = '*.sc',
-  command = 'setlocal noexpandtab',
-  group = group,
-})
+-- vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+--   pattern = '*.sc',
+--   command = 'setlocal noexpandtab',
+--   group = group,
+-- })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'cs',
