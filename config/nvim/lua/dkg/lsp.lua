@@ -1,9 +1,5 @@
 local lsp = require'lspconfig'
 local lsp_mappings = require'dkg.mappings'.lsp_mappings
-local ok, navic = pcall(require, 'nvim-navic')
-if not ok then
-  navic = nil
-end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- local ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
@@ -15,16 +11,14 @@ local on_attach = function(client, bufnr)
   lsp_mappings(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
   vim.cmd [[ command! -buffer -nargs=? ReplaceAll lua vim.lsp.buf.rename(<args>)<CR> ]]
-  if navic then
-    navic.attach(client, bufnr)
-  end
   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
+
 
 local servers = {
   clangd = {
     cmd = {
-      '/opt/homebrew/Cellar/llvm/14.0.6_1/bin/clangd',
+      '/opt/homebrew/Cellar/llvm/15.0.7_1/bin/clangd',
       '--background-index',
       '--clang-tidy',
     },
@@ -33,7 +27,32 @@ local servers = {
   cmake = {},
   tsserver = {},
   gdscript = {},
+  jsonls = {},
   -- supercollider = {},
+  -- sumneko_lua = {
+  --   cmd = { '/opt/homebrew/Cellar/lua-language-server/3.6.8/bin/lua-language-server' },
+  --   settings = {
+  --     Lua = {
+  --       runtime = {
+  --         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+  --         version = 'LuaJIT',
+  --       },
+  --       diagnostics = {
+  --         -- Get the language server to recognize the `vim` global
+  --         globals = {'vim'},
+  --       },
+  --       -- workspace = {
+  --       --   -- Make the server aware of Neovim runtime files
+  --       --   library = vim.api.nvim_get_runtime_file("", true),
+  --       --   checkThirdParty = false,
+  --       -- },
+  --       -- Do not send telemetry data containing a randomized but unique identifier
+  --       telemetry = {
+  --         enable = false,
+  --       },
+  --     },
+  --   },
+  -- }
 }
 
 local configs = require'lspconfig.configs'

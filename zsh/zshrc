@@ -6,20 +6,23 @@
 # (see also last line)
 # zmodload zsh/zprof
 
+# Be able to use tmux-256color using a custom terminfo entry
+# https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos/
+export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
+
 # allow bash-style comments
 setopt interactivecomments
 
 # set path
 path=($HOME/bin $path)
 path=($HOME/.dotfiles/bin $path)
-path=($HOME/Library/Python/3.9/bin $path)
+path=($HOME/Library/Python/3.10/bin $path)
 path=($HOME/.gem/ruby/2.6.0/bin $path)
 path=($HOME/.cargo/bin $path)
 path=($HOME/.luarocks/bin $path)
 
 # typeset -U path
 
-source ~/.dotfiles/zsh/sourceables.sh
 source ~/.dotfiles/zsh/aliases.sh
 source ~/.dotfiles/zsh/completion.zsh
 
@@ -85,6 +88,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.dotfiles/zsh/sourceables.sh
 
 # uncomment to profile startup time
 # zprof

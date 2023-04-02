@@ -17,8 +17,8 @@ require'nvim-treesitter.configs'.setup {
     'dockerfile',
     'query',
     'cmake',
-    'gdscript'
-    -- "markdown",
+    'gdscript',
+    'markdown',
     -- "supercollider",
   },
   -- indent = {

@@ -26,24 +26,24 @@ local function plugins()
   use { 'tpope/vim-abolish', cmd = 'S' }
   use { 'tpope/vim-fugitive', config = r'fugitive' }
   use { 'tpope/vim-repeat' }
-  -- use { 'tpope/vim-unimpaired', config = r'unimpaired' }
-  use { 'editorconfig/editorconfig-vim' }
-  -- use { 'gpanders/editorconfig.nvim' }
+  -- use { 'editorconfig/editorconfig-vim' }
+  use { 'gpanders/editorconfig.nvim' }
   use { 'numToStr/Navigator.nvim', config = r'navigator' }
   use { 'justinmk/vim-dirvish' }
   use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter', config = r'neogen' }
-  use { 'norcalli/nvim-colorizer.lua', cmd = 'ColorizerAttachToBuffer' }
+  -- use { 'norcalli/nvim-colorizer.lua', cmd = 'ColorizerAttachToBuffer' }
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim', config = r'gitsigns' }
   use { 'bakpakin/fennel.vim' }
   use { 'lukas-reineke/indent-blankline.nvim', config = r'indent-blankline' }
-  use { 'alec-gibson/nvim-tetris', cmd = 'Tetris' }
-  use { 'jbyuki/venn.nvim', config = r'venn' }
+  -- use { 'alec-gibson/nvim-tetris', cmd = 'Tetris' }
+  -- use { 'jbyuki/venn.nvim', config = r'venn' }
   use { 'mfussenegger/nvim-dap', config = r'dap' }
+  use { 'rcarriga/nvim-dap-ui' }
   use {
     'folke/tokyonight.nvim',
     config = function()
       require('tokyonight').setup {
-        style = 'night', -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
+        style = 'night',
         styles = {
           comments = { italic = true },
           keywords = { italic = false },
@@ -97,9 +97,16 @@ local function plugins()
       end)
     end,
   }
+  use {
+    'j-hui/fidget.nvim',
+    config = function()
+      require('fidget').setup{}
+    end
+  }
   use { '~/code/vim/scnvim', config = r'scnvim' }
   use { '~/code/vim/scnvim-logger' }
   use { '~/code/vim/scnvim-tmux' }
+  use { '~/code/vim/scnvim-level_meter' }
   use { '~/code/vim/nvim-markdown-preview' }
   use {'~/code/vim/telescope-scdoc' }
   use {
