@@ -158,6 +158,11 @@ local function create_tabline()
   return s
 end
 
+-- local timer = vim.loop.new_timer()
+-- timer:start(1000, 1000, vim.schedule_wrap(function()
+--   vim.cmd[[redrawstatus]]
+-- end))
+
 --- Interface
 
 function M.active()

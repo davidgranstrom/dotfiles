@@ -1,4 +1,4 @@
-pcall(require, 'impatient')
+vim.loader.enable()
 
 require'dkg.utils'
 require'dkg.performance'

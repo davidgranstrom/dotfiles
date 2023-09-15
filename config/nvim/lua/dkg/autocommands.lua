@@ -24,7 +24,7 @@ local function jump_to_last_position()
   local in_range = last_curpos >= 1 and last_curpos <= last_line
   local is_valid_filetype = ft ~= 'commit' and ft ~= 'rebase'
   if in_range and is_valid_filetype then
-    vim.cmd [[ normal! g`" ]]
+    vim.cmd [[normal! g`"]]
   end
 end
 

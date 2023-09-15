@@ -18,7 +18,7 @@ end
 local servers = {
   clangd = {
     cmd = {
-      '/opt/homebrew/Cellar/llvm/15.0.7_1/bin/clangd',
+      '/opt/homebrew/Cellar/llvm/16.0.2/bin/clangd',
       '--background-index',
       '--clang-tidy',
     },
@@ -28,6 +28,7 @@ local servers = {
   tsserver = {},
   gdscript = {},
   jsonls = {},
+  zls = {},
   -- supercollider = {},
   -- sumneko_lua = {
   --   cmd = { '/opt/homebrew/Cellar/lua-language-server/3.6.8/bin/lua-language-server' },
@@ -75,7 +76,7 @@ if not configs.supercollider then
 end
 
 -- vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
--- servers['supercollider'] = configs.supercollider
+servers['supercollider'] = configs.supercollider
 
 for name, cfg in pairs(servers) do
   local config = {

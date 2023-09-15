@@ -19,7 +19,7 @@ require'nvim-treesitter.configs'.setup {
     'cmake',
     'gdscript',
     'markdown',
-    -- "supercollider",
+    -- 'supercollider',
   },
   -- indent = {
   --   enable = true,

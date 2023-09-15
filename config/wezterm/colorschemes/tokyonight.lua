@@ -32,5 +32,13 @@ return {
       bg_color = '#232532',
       fg_color = '#c0caf5',
     },
+    active_tab = {
+      bg_color = '#33467c',
+      fg_color = '#808080',
+    },
+    inactive_tab = {
+      bg_color = '#15161e',
+      fg_color = '#808080',
+    },
   },
 }

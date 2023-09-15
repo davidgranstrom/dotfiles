@@ -16,7 +16,7 @@ end
 
 local function plugins()
   use { 'wbthomason/packer.nvim' }
-  use { 'lewis6991/impatient.nvim' }
+  -- use { 'lewis6991/impatient.nvim' }
   use { 'neovim/nvim-lspconfig' }
   use { 'nvim-treesitter/nvim-treesitter' }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
@@ -27,7 +27,7 @@ local function plugins()
   use { 'tpope/vim-fugitive', config = r'fugitive' }
   use { 'tpope/vim-repeat' }
   -- use { 'editorconfig/editorconfig-vim' }
-  use { 'gpanders/editorconfig.nvim' }
+  -- use { 'gpanders/editorconfig.nvim' }
   use { 'numToStr/Navigator.nvim', config = r'navigator' }
   use { 'justinmk/vim-dirvish' }
   use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter', config = r'neogen' }
@@ -37,8 +37,9 @@ local function plugins()
   use { 'lukas-reineke/indent-blankline.nvim', config = r'indent-blankline' }
   -- use { 'alec-gibson/nvim-tetris', cmd = 'Tetris' }
   -- use { 'jbyuki/venn.nvim', config = r'venn' }
-  use { 'mfussenegger/nvim-dap', config = r'dap' }
-  use { 'rcarriga/nvim-dap-ui' }
+  -- use { 'mfussenegger/nvim-dap', config = r'dap' }
+  -- use { 'rcarriga/nvim-dap-ui' }
+  use { 'ziglang/zig.vim' }
   use {
     'folke/tokyonight.nvim',
     config = function()
@@ -54,6 +55,12 @@ local function plugins()
       vim.cmd [[hi! link EndOfBuffer NonText]]
       vim.cmd [[hi! link WinSeparator Function]]
       -- vim.cmd [[hi! link Comment Question]]
+    end
+  }
+  use {
+    'dasupradyumna/midnight.nvim',
+    config = function()
+      -- vim.cmd.colorscheme 'midnight'
     end
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -99,6 +106,7 @@ local function plugins()
   }
   use {
     'j-hui/fidget.nvim',
+    tag = 'legacy',
     config = function()
       require('fidget').setup{}
     end
@@ -108,6 +116,18 @@ local function plugins()
   use { '~/code/vim/scnvim-tmux' }
   use { '~/code/vim/scnvim-level_meter' }
   use { '~/code/vim/nvim-markdown-preview' }
+  use {
+    '~/code/vim/replay.nvim',
+    config = function()
+      local replay = require'replay'
+      replay.setup{
+        output_path = "~/Documents/replay.nvim",
+      }
+      vim.keymap.set('n', '<F5>', function() replay.record('test') end)
+      vim.keymap.set('n', '<F7>', function() replay.play('test') end)
+      vim.keymap.set('n', '<F8>', function() replay.toggle_pause() end)
+    end
+  }
   use {'~/code/vim/telescope-scdoc' }
   use {
     '~/code/vim/oblique-strategies.nvim',

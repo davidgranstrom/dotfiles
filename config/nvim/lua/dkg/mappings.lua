@@ -163,7 +163,7 @@ local function lsp_mappings(bufnr)
   map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   map('n', '<leader>i', [[<cmd>lua require'telescope.builtin'.lsp_references()<CR>]], opts)
-  map('n', '<leader>y', [[<cmd>lua require'telescope.builtin'.lsp_document_symbols()<CR>]], opts)
+  map('n', '<leader>y', [[<cmd>lua require'telescope.builtin'.lsp_document_symbols({fname_width = 10, symbol_width = 55 })<CR>]], opts)
 end
 
 return {
