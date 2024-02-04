@@ -2,6 +2,7 @@
 
 vim.g.did_install_default_menus = 1
 vim.g.did_install_syntax_menu = 1
+vim.g.markdown_recommended_style = 0
 
 local builtins = {
   'netrw',

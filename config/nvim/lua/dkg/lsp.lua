@@ -18,9 +18,10 @@ end
 local servers = {
   clangd = {
     cmd = {
-      '/opt/homebrew/Cellar/llvm/16.0.6/bin/clangd',
+      '/opt/homebrew/Cellar/llvm/17.0.6_1/bin/clangd',
       '--background-index',
       '--clang-tidy',
+      '--offset-encoding=utf-16',
     },
     filetypes = {'c', 'cpp'},
   },
@@ -28,7 +29,13 @@ local servers = {
   tsserver = {},
   gdscript = {},
   jsonls = {},
-  zls = {},
+  zls = {
+    cmd = {
+      'zls',
+      '--config-path',
+      vim.fn.expand('~/.dotfiles/config/zls/zls.json'),
+    }
+  },
   -- supercollider = {},
   -- sumneko_lua = {
   --   cmd = { '/opt/homebrew/Cellar/lua-language-server/3.6.8/bin/lua-language-server' },
@@ -56,27 +63,27 @@ local servers = {
   -- }
 }
 
-local configs = require'lspconfig.configs'
-if not configs.supercollider then
-  configs.supercollider = {
-    default_config = {
-      cmd = {
-        '/Users/dkg/code/javascript/sclang-lsp-stdio/sclang-lsp-stdio.mjs',
-        '/Applications/SuperCollider.app/Contents/MacOS/sclang',
-        '-d',
-        '/tmp/sclang-lsp.txt'
-      },
-      filetypes = {'supercollider'},
-      root_dir = function(fname)
-        return vim.fn.getcwd()
-      end,
-    },
-    settings = {},
-  }
-end
+-- local configs = require'lspconfig.configs'
+-- if not configs.supercollider then
+--   configs.supercollider = {
+--     default_config = {
+--       cmd = {
+--         '/Users/dkg/code/javascript/sclang-lsp-stdio/sclang-lsp-stdio.mjs',
+--         '/Applications/SuperCollider.app/Contents/MacOS/sclang',
+--         '-d',
+--         '/tmp/sclang-lsp.txt'
+--       },
+--       filetypes = {'supercollider'},
+--       root_dir = function(fname)
+--         return vim.fn.getcwd()
+--       end,
+--     },
+--     settings = {},
+--   }
+-- end
 
 -- vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
-servers['supercollider'] = configs.supercollider
+-- servers['supercollider'] = configs.supercollider
 
 for name, cfg in pairs(servers) do
   local config = {

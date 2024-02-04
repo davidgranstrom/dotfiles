@@ -54,7 +54,7 @@ scnvim.setup {
       q = map('postwin.close')
     },
     float = {
-      enabled = false,
+      enabled = true,
       width = function()
         return vim.o.columns / 2
       end,

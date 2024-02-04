@@ -26,8 +26,6 @@ local function plugins()
   use { 'tpope/vim-abolish', cmd = 'S' }
   use { 'tpope/vim-fugitive', config = r'fugitive' }
   use { 'tpope/vim-repeat' }
-  -- use { 'editorconfig/editorconfig-vim' }
-  -- use { 'gpanders/editorconfig.nvim' }
   use { 'numToStr/Navigator.nvim', config = r'navigator' }
   use { 'justinmk/vim-dirvish' }
   use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter', config = r'neogen' }

@@ -30,9 +30,9 @@ end
 
 local map = vim.keymap.set
 
-map('i', '<C-j>', '<cmd>lua require"dkg.configs.luasnip".expand_or_jump()<cr>')
-map('i', '<C-k>', '<cmd>lua require"dkg.configs.luasnip".jump_back()<cr>')
-map('n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/dkg/snippets.lua<cr>', {silent = true})
+-- map('i', '<C-j>', '<cmd>lua require"dkg.configs.luasnip".expand_or_jump()<cr>')
+-- map('i', '<C-k>', '<cmd>lua require"dkg.configs.luasnip".jump_back()<cr>')
+-- map('n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/dkg/snippets.lua<cr>', {silent = true})
 
 return {
   expand_or_jump = expand_or_jump,

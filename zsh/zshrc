@@ -89,7 +89,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source ~/.dotfiles/zsh/sourceables.sh
+# source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+source $HOME/.dotfiles/zsh/sourceables.sh
+source $HOME/.dotfiles/config/wezterm/wezterm.sh
 
 # uncomment to profile startup time
 # zprof
@@ -97,6 +99,5 @@ source ~/.dotfiles/zsh/sourceables.sh
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
 
-export WASMTIME_HOME="$HOME/.wasmtime"
-
-export PATH="$WASMTIME_HOME/bin:$PATH"
+# export WASMTIME_HOME="$HOME/.wasmtime"
+# export PATH="$WASMTIME_HOME/bin:$PATH"
