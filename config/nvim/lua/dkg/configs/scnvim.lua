@@ -13,37 +13,30 @@ local function get_pandoc_path()
   end
 end
 
-require('replay').register_injection('scnvim_eval', require('scnvim.editor').send_block)
--- local emptylake = require('scnvim_emptylake')
-
 scnvim.setup {
   ensure_installed = true,
   keymaps = {
     ['<M-e>'] = map('editor.send_line', {'i', 'n'}, { desc = 'Send a line' }),
-    -- ['<C-e>'] = map('editor.send_block', {'i', 'n', 'x'}, { flash = true, desc = 'Send a block' }),
-    ['<C-e>'] = map(function()
-      require('replay').inject('scnvim_eval')
-      require('scnvim.editor').send_block()
-    end, {'i', 'n'}),
+    ['<C-e>'] = map('editor.send_block', {'i', 'n', 'x'}, { flash = true, desc = 'Send a block' }),
     ['<CR>'] = map('postwin.toggle', 'n', { desc = 'Toggle post window' }),
     ['<M-CR>'] = map('postwin.toggle', 'i'),
-    -- ['<M-L>'] = map('postwin.clear', {'n', 'i'}),
-    ['<M-L>'] = map(function()
-      require('scnvim.postwin').clear()
-      -- emptylake.last_col = 0
-    end, {'n', 'i'}),
+    ['<M-L>'] = map('postwin.clear', {'n', 'i'}),
     ['<C-k>'] = map('signature.show', {'n', 'i'}),
     ['<F12>'] = map('sclang.hard_stop', {'n', 'x', 'i'}),
     ['<leader>st'] = map('sclang.start', 'n', { desc = 'Start the interpreter' }),
     ['<leader>sk'] = map('sclang.recompile'),
     ['<F1>'] = map_expr('s.boot', 'n', { desc = 'Boot the server' }),
-    -- ['<F2>'] = map_expr('s.meter'),
-    ['<leader>sm'] = map_expr('s.meter'),
+    ['<F2>'] = map_expr('s.meter'),
   },
   editor = {
     highlight = {
       color = 'IncSearch',
       type = 'flash',
+    },
+    signature = {
+      config = {
+        close_events = {'InsertLeave', 'CursorMoved'},
+      },
     },
   },
   documentation = {
@@ -54,7 +47,7 @@ scnvim.setup {
       q = map('postwin.close')
     },
     float = {
-      enabled = true,
+      enabled = false,
       width = function()
         return vim.o.columns / 2
       end,
@@ -90,7 +83,7 @@ scnvim.setup {
 vim.keymap.set('n', '<leader>sn', sc_scratchpad_new)
 
 -- scnvim.load_extension 'tmux'
-scnvim.load_extension 'level_meter'
+-- scnvim.load_extension 'level_meter'
 -- scnvim.load_extension('logger')
 -- scnvim.load_extension('piano')
 -- scnvim.load_extension('fzf-sc')

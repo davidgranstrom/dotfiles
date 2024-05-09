@@ -17,7 +17,7 @@ Tarrasch/zsh-bd
 # order matters from here!
 
 # be able to perform async jobs in zsh
-# mafredri/zsh-async
+mafredri/zsh-async
 
 # theme
 sindresorhus/pure

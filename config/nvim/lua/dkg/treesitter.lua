@@ -19,6 +19,7 @@ require'nvim-treesitter.configs'.setup {
     'cmake',
     'gdscript',
     'markdown',
+    'vimdoc',
     -- 'supercollider',
   },
   -- indent = {
