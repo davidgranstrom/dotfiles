@@ -1,25 +1,24 @@
-local statusline = require'dkg.statusline'
+local statusline = require 'custom.statusline'
+local group = vim.api.nvim_create_augroup('dkg_init', { clear = true })
 
-local group = vim.api.nvim_create_augroup('dkg_init', {clear = true})
-
-vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   callback = statusline.active,
   group = group,
 })
 
-vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   callback = statusline.tabline,
   group = group,
 })
 
-vim.api.nvim_create_autocmd({'WinLeave', 'BufLeave'}, {
+vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   callback = statusline.inactive,
   group = group,
 })
 
 local function jump_to_last_position()
-  local last_curpos = vim.fn.line("'\"")
-  local last_line = vim.fn.line('$')
+  local last_curpos = vim.fn.line '\'"'
+  local last_line = vim.fn.line '$'
   local ft = vim.api.nvim_get_option_value('filetype', {})
   local in_range = last_curpos >= 1 and last_curpos <= last_line
   local is_valid_filetype = ft ~= 'commit' and ft ~= 'rebase'
@@ -29,7 +28,7 @@ local function jump_to_last_position()
 end
 
 vim.api.nvim_create_autocmd('BufRead', {
-  desc = "Jump to last cursor position when opening a buffer",
+  desc = 'Jump to last cursor position when opening a buffer',
   callback = jump_to_last_position,
   group = group,
   once = true,
@@ -37,15 +36,15 @@ vim.api.nvim_create_autocmd('BufRead', {
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.highlight.on_yank{higroup = "IncSearch", timeout=80}
+    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 80 }
   end,
   group = group,
 })
 
 -- Filetype specific autocommands
 
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-  pattern = {'*.h', '*.c'},
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { '*.h', '*.c' },
   command = 'set filetype=c',
   group = group,
 })
@@ -64,10 +63,10 @@ vim.api.nvim_create_autocmd('FileType', {
 
 local markdown_ = function()
   vim.opt_local.commentstring = '<!--%s-->'
-  vim.keymap.set('i', '.', '.<c-g>u', {buffer = true})
-  vim.keymap.set('i', '?', '?<c-g>u', {buffer = true})
-  vim.keymap.set('i', '!', '!<c-g>u', {buffer = true})
-  vim.keymap.set('i', ',', ',<c-g>u', {buffer = true})
+  vim.keymap.set('i', '.', '.<c-g>u', { buffer = true })
+  vim.keymap.set('i', '?', '?<c-g>u', { buffer = true })
+  vim.keymap.set('i', '!', '!<c-g>u', { buffer = true })
+  vim.keymap.set('i', ',', ',<c-g>u', { buffer = true })
 end
 
 vim.api.nvim_create_autocmd('FileType', {

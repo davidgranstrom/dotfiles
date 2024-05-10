@@ -23,8 +23,8 @@ end
 local function get_rel_filename()
   local buf = vim.api.nvim_get_current_buf()
   local name = vim.api.nvim_buf_get_name(buf)
-  local cwd = vim.call('getcwd') .. path_sep
-  local home = os.getenv('HOME')
+  local cwd = vim.call 'getcwd' .. path_sep
+  local home = os.getenv 'HOME'
   name = name:gsub(vim.pesc(cwd), '') -- escape magic chars
   name = name:gsub(home, '~')
   return name ~= '' and name or '[No name]'
@@ -52,7 +52,7 @@ local function short_path(path, keep)
     local items = vim.split(path, path_sep)
     for i, item in ipairs(items) do
       if i ~= #items then
-        s = s .. item:sub(1,keep) .. path_sep
+        s = s .. item:sub(1, keep) .. path_sep
       else
         s = s .. item
       end
@@ -142,7 +142,7 @@ local function create_tabline()
   local tabs = vim.api.nvim_list_tabpages()
   local num_tabs = vim.call('tabpagenr', '$')
   for i, handle in ipairs(tabs) do
-    local n = vim.call('tabpagenr')
+    local n = vim.call 'tabpagenr'
     local name = get_short_file_name(handle)
     if i == n then
       s = s .. '%#TabLineSel#'
@@ -157,11 +157,6 @@ local function create_tabline()
   s = s .. '%#TabLineFill#'
   return s
 end
-
--- local timer = vim.loop.new_timer()
--- timer:start(1000, 1000, vim.schedule_wrap(function()
---   vim.cmd[[redrawstatus]]
--- end))
 
 --- Interface
 

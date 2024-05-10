@@ -5,13 +5,13 @@ local set = vim.opt
 -------------
 
 -- work-around for nvim-cmp
-set.virtualedit = {'block', 'insert'}
+set.virtualedit = { 'block', 'insert' }
 
 -- yank to system-wide clipboard
 set.clipboard = 'unnamed'
 
 -- popup menu behaviour (completion)
-set.completeopt = {'menu', 'menuone', 'noselect'}
+set.completeopt = { 'menu', 'menuone', 'noselect' }
 
 -- enable mouse
 set.mouse = 'a'
@@ -48,7 +48,7 @@ set.pumblend = 10
 set.list = true
 
 -- highlight trailing whitespace
-set.listchars:append('trail:∙')
+set.listchars:append 'trail:∙'
 
 ---------------
 -- Searching --
@@ -96,14 +96,14 @@ set.wildignorecase = true
 set.lazyredraw = true
 
 -- use vertical diffs
-set.diffopt:append('vertical')
+set.diffopt:append 'vertical'
 
 -----------------
 -- Diagnostics --
 -----------------
 
-vim.diagnostic.config({
+vim.diagnostic.config {
   virtual_text = false,
   update_in_insert = false,
   signs = true,
-})
+}
