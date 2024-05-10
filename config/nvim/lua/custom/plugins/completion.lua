@@ -64,7 +64,6 @@ return {
           { name = 'tags' },
           { name = 'path' },
           { name = 'buffer' },
-          { name = 'luasnip' },
         },
       }
     end,
