@@ -1,6 +1,16 @@
 return {
   'justinmk/vim-dirvish',
   'tpope/vim-abolish',
+  {
+    'tpope/vim-fugitive',
+    cmd = 'Git',
+    keys = {
+      { '<leader>fs' }
+    },
+    config = function()
+      vim.keymap.set('n', '<leader>fs', '<cmd>Git<cr>')
+    end
+  },
   -- 'tpope/vim-repeat',
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
   {
