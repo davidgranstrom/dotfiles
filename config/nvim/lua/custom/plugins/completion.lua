@@ -9,6 +9,7 @@ return {
       'onsails/lspkind-nvim',
       'kyazdani42/nvim-web-devicons',
     },
+    event = 'InsertEnter',
     config = function()
       local lspkind = require 'lspkind'
       local cmp = require 'cmp'

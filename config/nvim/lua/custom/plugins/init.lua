@@ -1,6 +1,14 @@
 return {
-  'justinmk/vim-dirvish',
-  'tpope/vim-abolish',
+  {
+    'justinmk/vim-dirvish',
+    keys = {
+      { '-' }
+    },
+  },
+  {
+    'tpope/vim-abolish',
+    cmd = 'S',
+  },
   {
     'tpope/vim-fugitive',
     cmd = 'Git',

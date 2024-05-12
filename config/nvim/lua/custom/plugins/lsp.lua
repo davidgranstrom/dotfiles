@@ -28,11 +28,6 @@ return {
   },
   config = function()
     local lsp = require 'lspconfig'
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- local ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-    -- if ok then
-    --   capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-    -- end
 
     local on_attach = function(client, bufnr)
       lsp_mappings(bufnr)
@@ -111,10 +106,11 @@ return {
     -- vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)
     -- servers['supercollider'] = configs.supercollider
 
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
     for name, cfg in pairs(servers) do
       local config = {
         on_attach = on_attach,
-        capabilities = capabilities,
+        -- capabilities = capabilities,
       }
       config = vim.tbl_extend('keep', config, cfg)
       lsp[name].setup(config)

@@ -1,4 +1,16 @@
-vim.g.mapleader = ' '
+--
+--
+--         ███▄    ███▒   █▓██▓███▄ ▄███▓
+--         ██ ▀█   ▓██░   █▓██▓██▒▀█▀ ██▒
+--        ▓██  ▀█ ██▓██  █▒▒██▓██    ▓██░
+--        ▓██▒  ▐▌██▒▒██ █░░██▒██    ▒██
+--        ▒██░   ▓██░ ▒▀█░ ░██▒██▒   ░██▒
+--        ░ ▒░   ▒ ▒  ░ ▐░ ░▓ ░ ▒░   ░  ░
+--        ░ ░░   ░ ▒░ ░ ░░  ▒ ░  ░      ░
+--           ░   ░ ░    ░░  ▒ ░      ░
+--                 ░     ░  ░        ░
+--                      ░
+--
 
 _G.P = function(...)
   local num = select('#', ...)
@@ -12,6 +24,8 @@ _G.P = function(...)
   end
   print(result)
 end
+
+vim.g.mapleader = ' '
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
