@@ -2,7 +2,7 @@ return {
   {
     'justinmk/vim-dirvish',
     keys = {
-      { '-' }
+      { '-' },
     },
   },
   {
@@ -13,11 +13,11 @@ return {
     'tpope/vim-fugitive',
     cmd = { 'Gw', 'Gread', 'Gdiffsplit' },
     keys = {
-      { '<leader>fs' }
+      { '<leader>fs' },
     },
     config = function()
       vim.keymap.set('n', '<leader>fs', '<cmd>Git<cr>')
-    end
+    end,
   },
   -- 'tpope/vim-repeat',
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
