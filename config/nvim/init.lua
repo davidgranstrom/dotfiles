@@ -41,6 +41,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- Don't load providers
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 require('lazy').setup('custom/plugins', {
   change_detection = {
     notify = false,
@@ -58,11 +64,6 @@ require('lazy').setup('custom/plugins', {
         'zip',
         'zipPlugin',
         '2html_plugin',
-        'python3_provider',
-        'python_provider',
-        'ruby_provider',
-        'perl_provider',
-        'node_provider',
       },
     },
   },
