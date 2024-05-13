@@ -51,20 +51,22 @@ require('lazy').setup('custom/plugins', {
   change_detection = {
     notify = false,
   },
+  ui = {
+    border = 'single',
+  },
   performance = {
     rtp = {
       disabled_plugins = {
         'netrw',
         'netrwPlugin',
-        'netrwSettings',
-        'netrwFileHandlers',
         'matchit',
         'gzip',
         'tar',
         'tarPlugin',
         'zip',
         'zipPlugin',
-        '2html_plugin',
+        'tohtml',
+        'tutor',
       },
     },
   },
