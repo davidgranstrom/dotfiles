@@ -11,7 +11,7 @@ return {
   },
   {
     'tpope/vim-fugitive',
-    cmd = 'Git',
+    cmd = { 'Gw', 'Gread', 'Gdiffsplit' },
     keys = {
       { '<leader>fs' }
     },

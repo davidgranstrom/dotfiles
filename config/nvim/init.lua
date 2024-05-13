@@ -58,6 +58,7 @@ require('lazy').setup('custom/plugins', {
         'netrwPlugin',
         'netrwSettings',
         'netrwFileHandlers',
+        'matchit',
         'gzip',
         'tar',
         'tarPlugin',
