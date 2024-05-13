@@ -31,10 +31,13 @@ return {
     config = true,
   },
   {
-    'AckslD/nvim-trevJ.lua',
-    config = true,
+    'Wansmer/treesj',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {
+      use_default_keymaps = false,
+    },
     keys = {
-      { '<leader>l', '<cmd>lua require"trevj".format_at_cursor()<cr>', desc = 'Split function arguments' },
+      { '<leader>l', '<cmd>lua require("treesj").toggle()<cr>', desc = 'Split code block toggle' },
     },
   },
   {
