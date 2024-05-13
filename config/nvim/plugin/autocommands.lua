@@ -1,19 +1,15 @@
 local statusline = require 'custom.statusline'
-local group = vim.api.nvim_create_augroup('dkg_init', { clear = true })
 
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   callback = statusline.active,
-  group = group,
 })
 
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   callback = statusline.tabline,
-  group = group,
 })
 
 vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   callback = statusline.inactive,
-  group = group,
 })
 
 local function jump_to_last_position()
@@ -30,7 +26,6 @@ end
 vim.api.nvim_create_autocmd('BufRead', {
   desc = 'Jump to last cursor position when opening a buffer',
   callback = jump_to_last_position,
-  group = group,
   once = true,
 })
 
@@ -38,7 +33,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank { higroup = 'IncSearch', timeout = 80 }
   end,
-  group = group,
 })
 
 -- Filetype specific autocommands
@@ -46,19 +40,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.h', '*.c' },
   command = 'set filetype=c',
-  group = group,
 })
 
 -- vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
 --   pattern = '*.sc',
 --   command = 'setlocal noexpandtab',
---   group = group,
 -- })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'cs',
   command = 'setlocal tabstop=4 softtabstop=4 shiftwidth=4',
-  group = group,
 })
 
 local markdown_ = function()
@@ -72,29 +63,24 @@ end
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',
   callback = markdown_,
-  group = group,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'javascript.jsx',
-  command = 'setlocal filetype=javascript',
-  group = group,
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = 'javascript.jsx',
+--   command = 'setlocal filetype=javascript',
+-- })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'python',
   command = 'setlocal ts=4 sts=4 sw=4',
-  group = group,
 })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'cmake',
   command = 'setlocal commentstring=#%s',
-  group = group,
 })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'gitcommit',
   command = 'setlocal spell | setlocal spelllang=en',
-  group = group,
 })
