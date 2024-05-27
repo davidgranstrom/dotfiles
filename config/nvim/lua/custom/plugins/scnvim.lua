@@ -5,7 +5,6 @@ return {
     local scnvim = require 'scnvim'
     local map = scnvim.map
     local map_expr = scnvim.map_expr
-
     scnvim.setup {
       keymaps = {
         ['<M-e>'] = map('editor.send_line', { 'i', 'n' }, { desc = 'Send a line' }),
