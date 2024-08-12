@@ -39,7 +39,7 @@ return {
     local servers = {
       clangd = {
         cmd = {
-          '/opt/homebrew/Cellar/llvm/17.0.6_1/bin/clangd',
+          '/opt/homebrew/Cellar/llvm/18.1.8/bin/clangd',
           '--background-index',
           '--clang-tidy',
           '--offset-encoding=utf-16',
