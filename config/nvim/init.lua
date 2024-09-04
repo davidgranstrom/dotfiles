@@ -12,6 +12,16 @@
 --                      ░
 --
 
+if vim.g.vscode then
+  local map = vim.keymap.set
+  map('i', 'jk', '<Esc>')
+  map('n', '<C-l>', '10zl')
+  map('n', '<C-h>', '10zh')
+  map({ 'n', 'x' }, 'gp', '"0p')
+  map('i', '<C-l>', '<Right>')
+  return
+end
+
 _G.P = function(...)
   local num = select('#', ...)
   local args = { ... }
@@ -71,6 +81,10 @@ require('lazy').setup('custom/plugins', {
   },
 })
 
-vim.cmd.colorscheme 'tokyonight'
+vim.cmd.colorscheme 'cyberdream'
 vim.cmd [[hi! link EndOfBuffer NonText]]
-vim.cmd [[hi! link WinSeparator Function]]
+vim.opt.fillchars:append 'eob:~'
+
+-- vim.cmd.colorscheme 'tokyonight'
+-- vim.cmd [[hi! link EndOfBuffer NonText]]
+-- vim.cmd [[hi! link WinSeparator Function]]

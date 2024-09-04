@@ -1,5 +1,6 @@
 local wezterm = require'wezterm'
-local colorscheme = require'colorschemes.tokyonight'
+-- local colorscheme = require'colorschemes.tokyonight'
+local colorscheme = require'colorschemes.cyberdream'
 local action = wezterm.action
 
 local function conditional_activate_pane(window, pane, pane_direction, vim_direction)
@@ -67,8 +68,8 @@ return {
   colors = colorscheme,
   force_reverse_video_cursor = false,
   enable_tab_bar = true,
-  -- window_background_opacity = 0.8,
-  -- macos_window_background_blur = 60,
+  window_background_opacity = 0.85,
+  macos_window_background_blur = 60,
   window_padding = {
     left = "0.5cell",
     right = "0.5cell",
