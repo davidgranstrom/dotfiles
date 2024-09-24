@@ -68,8 +68,12 @@ return {
   colors = colorscheme,
   force_reverse_video_cursor = false,
   enable_tab_bar = true,
-  window_background_opacity = 0.85,
+  window_background_opacity = 0.80,
   macos_window_background_blur = 60,
+  inactive_pane_hsb = {
+    saturation = 0.9,
+    brightness = 0.6,
+  },
   window_padding = {
     left = "0.5cell",
     right = "0.5cell",

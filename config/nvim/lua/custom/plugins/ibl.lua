@@ -6,6 +6,7 @@ return {
     },
     indent = {
       char = '│',
+      highlight = { 'Whitespace' },
     },
     exclude = {
       filetypes = {

@@ -17,7 +17,7 @@ return {
     "#ffffff",
   },
   brights = {
-    "#3c4048",
+    "#3c4048", -- lighter: 6f737b
     "#ff6e5e",
     "#5eff6c",
     "#f1ff5e",
@@ -26,6 +26,8 @@ return {
     "#5ef1ff",
     "#ffffff",
   },
+  indexed = { [16] = "#ffbd5e", [17] = "#ff6e5e" },
+  split = "#16181a",
   tab_bar = {
     -- background = "#15161e",
     background = "#16181a",

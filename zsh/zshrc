@@ -82,6 +82,8 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS='--color=bw'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6f737b"
+
 # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
@@ -101,3 +103,6 @@ source $HOME/.dotfiles/config/wezterm/wezterm.sh
 
 # export WASMTIME_HOME="$HOME/.wasmtime"
 # export PATH="$WASMTIME_HOME/bin:$PATH"
+
+# Created by `pipx` on 2024-09-18 07:45:54
+export PATH="$PATH:/Users/dkg/.local/bin"

@@ -27,7 +27,7 @@ local function get_rel_filename()
   local home = os.getenv 'HOME'
   name = name:gsub(vim.pesc(cwd), '') -- escape magic chars
   name = name:gsub(home, '~')
-  return name ~= '' and name or '[No name]'
+  return name ~= '' and name or '[No Name]'
 end
 
 local function get_gitbranch()

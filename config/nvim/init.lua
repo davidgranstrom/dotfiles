@@ -83,6 +83,10 @@ require('lazy').setup('custom/plugins', {
 
 vim.cmd.colorscheme 'cyberdream'
 vim.cmd [[hi! link EndOfBuffer NonText]]
+vim.cmd [[hi WinSeparator guifg=Black]]
+-- vim.cmd [[hi! link StatusLine TabLineSel]]
+vim.cmd [[hi StatusLine guibg=#16181a]]
+vim.cmd [[hi StatusLineNC guibg=#16181a]]
 vim.opt.fillchars:append 'eob:~'
 
 -- vim.cmd.colorscheme 'tokyonight'

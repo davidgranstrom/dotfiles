@@ -21,10 +21,11 @@ return {
       hide_fillchars = false,
       italic_comments = true,
       theme =  {
-       overrides = function(colors)
-            return {
-                VertSplit = { fg = colors.bgAlt, bg = colors.bgAlt },
-            }
+        overrides = function(colors)
+          return {
+            Identifier = { fg = colors.blue, bg = "NONE", italic = false },
+            -- VertSplit = { fg = '#16181a', bg = '#16181a' },
+          }
         end,
       }
     }

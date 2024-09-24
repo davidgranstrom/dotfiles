@@ -21,7 +21,7 @@ set.mouse = 'a'
 ----------------
 
 -- command line height
--- set.cmdheight = 0
+set.cmdheight = 0
 
 -- enable true color
 set.termguicolors = true

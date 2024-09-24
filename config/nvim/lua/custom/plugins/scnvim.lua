@@ -12,7 +12,7 @@ return {
         ['<CR>'] = map('postwin.toggle', 'n', { desc = 'Toggle post window' }),
         ['<M-CR>'] = map('postwin.toggle', 'i'),
         ['<M-L>'] = map('postwin.clear', { 'n', 'i' }),
-        ['<C-k>'] = map('signature.show', { 'n', 'i' }),
+        -- ['<C-k>'] = map('signature.show', { 'n', 'i' }),
         ['<F12>'] = map('sclang.hard_stop', { 'n', 'x', 'i' }),
         ['<leader>st'] = map('sclang.start', 'n', { desc = 'Start the interpreter' }),
         ['<leader>sk'] = map 'sclang.recompile',
@@ -25,9 +25,8 @@ return {
           type = 'flash',
         },
         signature = {
-          config = {
-            close_events = { 'InsertLeave', 'CursorMoved' },
-          },
+          float = false,
+          auto = false,
         },
       },
       documentation = {
@@ -38,7 +37,7 @@ return {
           q = map 'postwin.close',
         },
         float = {
-          enabled = false,
+          enabled = true,
           width = function()
             return vim.o.columns / 2
           end,
