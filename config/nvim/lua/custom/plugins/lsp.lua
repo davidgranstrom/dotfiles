@@ -51,11 +51,7 @@ return {
       gdscript = {},
       jsonls = {},
       zls = {
-        cmd = {
-          'zls',
-          '--config-path',
-          vim.fn.expand '~/.dotfiles/config/zls/zls.json',
-        },
+        cmd = { 'zls' },
       },
       supercollider = {},
       -- sumneko_lua = {
@@ -112,7 +108,8 @@ return {
         },
         filetypes = {'supercollider'},
         root_dir = function(fname)
-          return "/"
+          -- return "/"
+          return vim.fn.getcwd()
         end,
         settings = {},
       },
