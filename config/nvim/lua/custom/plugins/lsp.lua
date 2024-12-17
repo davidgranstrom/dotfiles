@@ -53,7 +53,7 @@ return {
       zls = {
         cmd = { 'zls' },
       },
-      supercollider = {},
+      -- supercollider = {},
       -- sumneko_lua = {
       --   cmd = { '/opt/homebrew/Cellar/lua-language-server/3.6.8/bin/lua-language-server' },
       --   settings = {
@@ -98,22 +98,22 @@ return {
     --   }
     -- end
 
-    local configs = require'lspconfig.configs'
-    configs.supercollider = {
-      default_config = {
-        cmd = {
-          "sc-language-server",
-          "--log-file",
-          "/tmp/sc_lsp_output.log",
-        },
-        filetypes = {'supercollider'},
-        root_dir = function(fname)
-          -- return "/"
-          return vim.fn.getcwd()
-        end,
-        settings = {},
-      },
-    }
+    -- local configs = require'lspconfig.configs'
+    -- configs.supercollider = {
+    --   default_config = {
+    --     cmd = {
+    --       "sc-language-server",
+    --       "--log-file",
+    --       "/tmp/sc_lsp_output.log",
+    --     },
+    --     filetypes = {'supercollider'},
+    --     root_dir = function(fname)
+    --       -- return "/"
+    --       return vim.fn.getcwd()
+    --     end,
+    --     settings = {},
+    --   },
+    -- }
 
 
     -- vim.lsp.set_log_level(vim.lsp.log_levels.DEBUG)

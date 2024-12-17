@@ -59,4 +59,13 @@ return {
       },
     },
   },
+  -- {
+  --   dir = '~/code/vim/timber.nvim',
+  --   event = 'VeryLazy',
+  --   config = function()
+  --     require('timber').setup({
+  --       -- Configuration here, or leave empty to use defaults
+  --     })
+  --   end
+  -- },
 }

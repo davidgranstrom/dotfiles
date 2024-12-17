@@ -1,16 +1,16 @@
 return {
-  {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {
-      style = 'night',
-      styles = {
-        comments = { italic = true },
-        keywords = { italic = false },
-      },
-    },
-  },
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     style = 'night',
+  --     styles = {
+  --       comments = { italic = true },
+  --       keywords = { italic = false },
+  --     },
+  --   },
+  -- },
   {
     'scottmckendry/cyberdream.nvim',
     lazy = false,
