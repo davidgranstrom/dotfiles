@@ -81,6 +81,13 @@ require('lazy').setup('custom/plugins', {
   },
 })
 
+-- vim.lsp.config('*', {
+--   on_attach = function(_, bufnr)
+--     print('hello from client')
+--   end,
+-- })
+-- vim.lsp.enable({'clangd'})
+
 vim.cmd.colorscheme 'cyberdream'
 vim.cmd [[hi! link EndOfBuffer NonText]]
 vim.cmd [[hi WinSeparator guifg=Black]]

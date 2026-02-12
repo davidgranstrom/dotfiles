@@ -39,12 +39,12 @@ return {
     local servers = {
       clangd = {
         cmd = {
-          '/opt/homebrew/Cellar/llvm/18.1.8/bin/clangd',
-          '--background-index',
-          '--clang-tidy',
-          '--offset-encoding=utf-16',
+          '/opt/homebrew/opt/llvm/bin/clangd',
+          -- '--background-index',
+          -- '--clang-tidy',
+          -- '--offset-encoding=utf-16',
         },
-        filetypes = { 'c', 'cpp' },
+        -- filetypes = { 'c', 'cpp' },
       },
       cmake = {},
       ts_ls = {},
@@ -52,6 +52,17 @@ return {
       jsonls = {},
       zls = {
         cmd = { 'zls' },
+        settings = {
+          zls = {
+            -- Whether to enable build-on-save diagnostics
+            -- Further information about build-on save:
+            -- https://zigtools.org/zls/guides/build-on-save/
+            -- enable_build_on_save = true,
+
+            -- Neovim already provides basic syntax highlighting
+            semantic_tokens = 'partial',
+          }
+        }
       },
       -- supercollider = {},
       -- sumneko_lua = {

@@ -48,6 +48,15 @@ export LANG=en_US.UTF-8
 export LC_COLLATE=C
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+#sapf
+export SAPF_HISTORY="$HOME/code/sapf/sapf-history.txt"
+export SAPF_LOG="$HOME/code/sapf/sapf-log.txt"
+export SAPF_PRELUDE="$HOME/code/sapf/sapf-prelude.txt"
+export SAPF_EXAMPLES="$HOME/code/sapf/sapf-examples.txt"
+export SAPF_README="$HOME/code/sapf/README.txt"
+export SAPF_RECORDINGS="$HOME/code/sapf/recordings"
+export SAPF_SPECTROGRAMS="$HOME/code/sapf/spectrograms"
+
 # browse z's most recent directories using fzf
 function r()
 {

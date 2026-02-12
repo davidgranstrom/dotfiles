@@ -84,3 +84,20 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'gitcommit',
   command = 'setlocal spell | setlocal spelllang=en',
 })
+
+vim.api.nvim_create_autocmd('BufWritePre',{
+  pattern = {'*.zig', '*.zon'},
+  callback = function(ev)
+    vim.lsp.buf.format()
+  end
+})
+
+vim.api.nvim_create_autocmd('BufWritePre',{
+  pattern = {'*.zig', '*.zon'},
+  callback = function(ev)
+    vim.lsp.buf.code_action({
+      context = { only = { 'source.fixAll' } },
+      apply = true,
+    })
+  end
+})

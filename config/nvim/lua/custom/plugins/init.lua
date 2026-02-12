@@ -59,6 +59,9 @@ return {
       },
     },
   },
+  {
+    dir = '~/code/vim/scnvim-repl',
+  },
   -- {
   --   dir = '~/code/vim/timber.nvim',
   --   event = 'VeryLazy',
