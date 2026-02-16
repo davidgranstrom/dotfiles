@@ -81,12 +81,20 @@ require('lazy').setup('custom/plugins', {
   },
 })
 
--- vim.lsp.config('*', {
---   on_attach = function(_, bufnr)
---     print('hello from client')
---   end,
--- })
--- vim.lsp.enable({'clangd'})
+-- LSP configuration
+
+vim.lsp.config('*', {
+  capabilities = {
+    textDocument = {
+      semanticTokens = {
+        multilineTokenSupport = true,
+      }
+    }
+  },
+  root_markers = { '.git' },
+})
+
+vim.lsp.enable('clangd')
 
 vim.cmd.colorscheme 'cyberdream'
 vim.cmd [[hi! link EndOfBuffer NonText]]

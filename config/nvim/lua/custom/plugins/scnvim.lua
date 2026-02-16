@@ -46,11 +46,17 @@ return {
           end,
         },
       },
-      extensions = {},
+      extensions = {
+        repl = {
+          term_cmd = {'open', '-a', 'Ghostty.app'}
+        },
+      },
     }
 
     vim.keymap.set('n', '<leader>sn', function()
       sc_scratchpad_new()
     end)
+
+    scnvim.load_extension 'repl'
   end,
 }

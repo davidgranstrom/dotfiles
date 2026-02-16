@@ -12,9 +12,11 @@ return {
     { '<leader>b' },
     { '<leader>g' },
     { '<leader>i' },
+    { '<leader>y' },
   },
   config = function()
     local telescope = require 'telescope'
+    local builtin = require 'telescope.builtin'
     local sorters = require 'telescope.sorters'
     local previewers = require 'telescope.previewers'
 
@@ -44,5 +46,13 @@ return {
       local map, action = unpack(provider)
       vim.keymap.set('n', map, string.format(cmd, action))
     end
+
+    vim.keymap.set(
+      'n',
+      '<leader>y',
+      function()
+        builtin.lsp_document_symbols({fname_width = 10, symbol_width = 55 })
+      end
+    )
   end,
 }

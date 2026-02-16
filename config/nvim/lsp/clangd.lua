@@ -61,7 +61,7 @@
 -- end
 
 return {
-  cmd = { 'clangd' },
+  cmd = { '/opt/homebrew/opt/llvm/bin/clangd' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
   root_markers = {
     '.clangd',

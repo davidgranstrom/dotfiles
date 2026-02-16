@@ -19,8 +19,22 @@ return {
       vim.keymap.set('n', '<leader>fs', '<cmd>Git<cr>')
     end,
   },
-  -- 'tpope/vim-repeat',
-  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
+  {
+    'saghen/blink.indent',
+    opts = {
+      static = {
+        enabled = true,
+        char = '│',
+        whitespace_char = nil, -- inherits from `vim.opt.listchars:get().space` when `nil` (see `:h listchars`)
+        priority = 1,
+        highlights = { 'Whitespace' },
+      },
+      scope = {
+        enabled = false,
+      },
+    }
+  },
+  { 'j-hui/fidget.nvim', lazy = true, opts = {} },
   {
     dir = '~/code/vim/nvim-markdown-preview',
     ft = 'markdown',
@@ -59,16 +73,5 @@ return {
       },
     },
   },
-  {
-    dir = '~/code/vim/scnvim-repl',
-  },
-  -- {
-  --   dir = '~/code/vim/timber.nvim',
-  --   event = 'VeryLazy',
-  --   config = function()
-  --     require('timber').setup({
-  --       -- Configuration here, or leave empty to use defaults
-  --     })
-  --   end
-  -- },
+  { dir = '~/code/vim/scnvim-repl', lazy = true },
 }
