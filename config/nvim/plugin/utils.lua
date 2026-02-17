@@ -7,6 +7,7 @@ local api = vim.api
 vim.cmd [[command! JSONPretty %!jq '.']]
 vim.cmd [[command! JSONUgly %!jq -c '.']]
 vim.cmd [[command! UUID lua require'custom.uuidgen'()]]
+vim.cmd [[command! -buffer -nargs=? ReplaceAll lua vim.lsp.buf.rename(<args>)]]
 
 --- Create a new temporary buffer for SuperCollider code.
 function sc_scratchpad_new()

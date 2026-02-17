@@ -48,7 +48,7 @@ return {
       },
       extensions = {
         repl = {
-          term_cmd = {'open', '-a', 'Ghostty.app'}
+          -- term_cmd = {'open', '-a', 'Ghostty.app'}
         },
       },
     }
