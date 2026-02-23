@@ -8,10 +8,12 @@ return {
       appearance = {
         nerd_font_variant = 'mono'
       },
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        documentation = { auto_show = false },
+      },
       sources = {
         default = { 'lsp', 'path', 'buffer' },
-        min_keyword_length = 2,
+        min_keyword_length = 3,
       },
     },
   },

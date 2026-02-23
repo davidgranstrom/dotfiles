@@ -57,6 +57,6 @@ return {
       sc_scratchpad_new()
     end)
 
-    scnvim.load_extension 'repl'
+    -- scnvim.load_extension 'repl'
   end,
 }

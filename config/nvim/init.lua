@@ -97,6 +97,7 @@ vim.lsp.config('*', {
 vim.lsp.enable('clangd')
 vim.lsp.enable('cmake')
 vim.lsp.enable('zls')
+vim.lsp.enable('jsonls')
 
 vim.cmd.colorscheme 'cyberdream'
 vim.cmd [[hi! link EndOfBuffer NonText]]

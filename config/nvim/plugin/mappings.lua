@@ -142,4 +142,3 @@ end)
 
 map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 map('n', '<leader>o', '<cmd>lua vim.diagnostic.open_float()<CR>')
-
